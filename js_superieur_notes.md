@@ -231,7 +231,7 @@
 > console.log(fn.toString())
 > fn.test3()
 > ```
-  ![原型链简易示意图](images\原型链.jpg)  
+  ![原型链简易示意图](https://github.com/chloeclay/coding-notes/blob/JS/images/%E5%8E%9F%E5%9E%8B%E9%93%BE.jpg?raw=true)  
 
 >  * 除Object外所有函数的显性原型prototype指向的对象都默认是空Object对象
 >     ``` javascript
@@ -249,7 +249,7 @@
 >     console.log(Object.prototype.__proto__) // null
 >     ```
 >
-> * ![原型链完整示意图](images\原型链2.png)  
+> * ![原型链完整示意图](https://github.com/chloeclay/coding-notes/blob/JS/images/%E5%8E%9F%E5%9E%8B%E9%93%BE2.png?raw=true)  
   * instanceof
 > ```javascript
 > console.log(Function instanceof Object)
@@ -392,7 +392,7 @@
    > c(2) // c is not a function
    > ```
 
-![执行上下文栈示意图](images\上下文栈.png)  
+![执行上下文栈示意图](https://github.com/chloeclay/coding-notes/blob/JS/images/%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88.png?raw=true)  
 ### 3. 作用域与作用域链
 ##### 1. 理解
   * 作用域：一块代码区域, 在编码时就确定了, 不会再变化
@@ -658,7 +658,7 @@ console.log(obj.func()()) // object
 * 关系
   * 一个进程至少有一个线程(主)
   * 程序是在某个进程中的某个线程执行的
-![进程与线程示意图](images\进程与线程.png)
+![进程与线程示意图](https://github.com/chloeclay/coding-notes/blob/JS/images/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B.png?raw=true)
 ### 2. 浏览器内核模块组成
 * 主线程
   * js引擎模块 : 负责js程序的编译与运行
@@ -689,7 +689,7 @@ console.log(obj.func()()) // object
   * 执行初始化代码, 将事件回调函数交给对应模块管理
   * 当事件发生时, 管理模块会将回调函数及其数据添加到回调列队中
   * 只有当初始化代码执行完后(可能要一定时间), 才会遍历读取回调队列中的回调函数执行
-![事件处理示意图](images\事件处理.png)
+![事件处理示意图](https://github.com/chloeclay/coding-notes/blob/JS/images/%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86.png?raw=true)
 
 ### 6. H5 Web Workers
 * 可以让js在分线程执行
@@ -710,7 +710,7 @@ console.log(obj.func()()) // object
   // 向另一个线程发送数据
   worker.postMessage(data1) 
 ```
-![webworker示意图](images\webworker.png)
+![webworker示意图](https://github.com/chloeclay/coding-notes/blob/JS/images/webworker.png?raw=true)
 
 
 ---
