@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery练习</title>
+    <script type="text/javascript" src="./源码_课件/课件/jQuery库/jquery-1.12.3.js"></script>
+    <script type="text/javascript" >
+    // 练习1
+        // $(function () {
+        //     $('#btn').click(function () {
+        //         var userName = $('#user').val()
+        //         alert(userName)
+        //     })
+        // })
+    // 练习2
+    /*
+        需求1. 点击按钮: 显示按钮的文本, 显示一个新的输入框
+        需求2. 遍历输出数组中所有元素值
+        需求3. 去掉"  my atguigu  "两端的空格
+    */
+        // $(function () {
+        //     // 需求1. 点击按钮: 显示按钮的文本, 显示一个新的输入框
+        //     $('#btn').click(function () {
+        //         alert($(this).html())
+
+        //         $('<input type="text" name="input3"><br />').appendTo('#outer')
+        //     })
+        //     // 需求2. 遍历输出数组中所有元素值
+        //     var arr = [1, 1, 2, 3, 5, 8, 13]
+        //     $.each(arr, function (index,item) {
+        //         console.log(index,item)
+        //     })
+        //     // 需求3. 去掉string两端的空格
+        //     var str = '   Bonjour Chloe      '
+        //     console.log($.trim(str))
+        // })
+    // 练习3
+        // 需求1.统计一共有多少个按钮
+        // 需求2.取出第2个button的文本
+        // 需求3.输出所有button标签的文本
+        // 需求4.输出'测试三'按钮是所有按钮中的第几个
+        // $(function () {
+        //     // 需求1.统计一共有多少个按钮
+        //     var $btns = $('button')
+        //     console.log($btns.length);
+        //     // 需求2.取出第2个button的文本
+        //     console.log($btns[1].innerHTML);
+        //     // 需求3.输出所有button标签的文本
+        //     $btns.each(function (index,elem) {
+        //         console.log(index + ': ' + this.innerHTML);
+        //     })
+        //     // 需求4.输出'测试三'按钮是所有按钮中的第几个
+        //     console.log('Test3是第'+ ($('#btn3').index() + 1) + '个按钮');
+        // })
+        
+    // 练习4 选择器
+        // 1. 选择id为div1的元素
+        // 2. 选择所有的div元素
+        // 3. 选择所有class属性为box的元素
+        // 4. 选择所有的div和span元素
+        // 5. 选择所有class属性为box的div元素
+
+        // $(function () {
+        //     // 1. 选择id为div1的元素
+        //     $('#div1').css('background','yellow')
+        //     // 2. 选择所有的div元素
+        //     $('div').css('font-weight','900')
+        //     // 3. 选择所有class属性为box的元素
+        //     $('.box').css('color','red')
+        //     // 4. 选择所有的div和span元素
+        //     $('div,span').css('text-decoration','underline')
+        //     // 5. 选择所有class属性为box的div元素
+        //     $('div.box').css('font-style','italic')
+        // })
+
+        // 1. 选中ul下所有的的span
+        // 2. 选中ul下所有的子元素span
+        // 3. 选中class为box的下一个li
+        // 4. 选中ul下的class为box的元素后面的所有兄弟元素
+
+        // $(function () {
+        // // 1. 选中ul下所有的的span
+        //     $('ul span').css('background','yellow')
+        // // 2. 选中ul下所有的子元素span
+        //     $('ul>span').css('background','yellowgreen')
+        // // 3. 选中class为box的下一个li
+        //     $('.box~li').css('font-weight','900')
+        // // 4. 选中ul下的class为box的元素后面的所有兄弟元素
+        //     $('ul .box~*').css('text-decoration','underline')
+        // })
+
+    // 练习5 过滤选择器
+    // 1. 选择第一个div
+    // 2. 选择最后一个class为box的元素
+    // 3. 选择所有class属性不为box的div
+    // 4. 选择第二个和第三个li元素
+    // 5. 选择内容为BBBBB的li
+    // 6. 选择隐藏的li
+    // 7. 选择有title属性的li元素
+    // 8. 选择所有属性title为hello的li元素
+
+    // $(function () {
+    //     // 1. 选择第一个div
+    //     $('div:first').css('background','yellow')
+    //     // 2. 选择最后一个class为box的元素
+    //     $('.box:last').css('text-decoration','underline')
+    //     // 3. 选择所有class属性不为box的div
+    //     $('div:not(".box")').css('color','yellowgreen')
+    //     // 4. 选择第二个和第三个li元素
+    //     $('li:gt(0):lt(2)').css('background','#6fa56f')
+    //     // 5. 选择内容为BBBBB的li
+    //     $('li:contains("BBBBB")').css('text-decoration','line-through')
+    //     // 6. 选择隐藏的li
+    //     $('li:hidden').css('display','block')
+    //     // 7. 选择有title属性的li元素
+    //     $('li[title]').css('color','#bd8585')
+    //     // 8. 选择所有属性title为hello的li元素
+    //     $('li[title = hello]').css('font-size','1.5em')
+    // })
+
+    // 练习6 表单选择器
+    // 1. 选择不可用的文本输入框
+    // 2. 显示选择爱好的个数
+    // 3. 显示选择的城市名称
+    
+    // $(function () {
+    //     // 1. 选择不可用的文本输入框
+    //     $('input:disabled').css('background','#c7c7c7')
+    //     // 2. 显示选择爱好的个数
+    //     console.log($(':checkbox:checked').length)
+    //     // 3. 显示选择的城市名称
+    //     $(':submit').click(function () {
+    //         var city = $('select>option:selected').html()
+    //         alert(city)
+    //     })
+    // })
+    </script>
+</head>
+<body>
+    <!-- 练习1 -->
+        <!-- <input type="text" name="user" id="user">
+        <button id="btn">提交</button> -->
+
+    <!-- 练习2 -->
+    <!-- <div id="outer">
+        <button id="btn">Submit</button>
+        <br />
+        <input type="text" name="input1"><br />
+        <input type="text" name="input2"><br />
+    </div> -->
+
+    <!-- 练习3 -->
+    <!-- <button>Test1</button>
+    <button>Test2</button>
+    <button id="btn3">Test3</button>
+    <button>Test4</button> -->
+
+    <!-- 练习4 选择器 -->
+    <!-- <div id="div1" class="box">div1(class="box")</div>
+    <div id="div2" class="box">div2(class="box")</div>
+    <div id="div3">div3</div>
+    <span class="box">span(class="box")</span>
+    <br>
+   
+    <ul>
+        <li>AAAAA</li>
+        <li title="hello"><span>BBBBB</span></li>
+        <li class="box">CCCCC</li>
+        <li title="hello"><span class="box">DDDD</span></li>
+        <span>EEEEE</span>
+    </ul> -->
+
+    <!-- 练习5 过滤选择器 -->
+    <!-- <div id="div1" class="box">class为box的div1</div>
+    <div id="div2" class="box">class为box的div2</div>
+    <div id="div3">div3</div>
+    <span class="box">class为box的span</span>
+    <br />
+    <ul>
+        <li>AAAAA</li>
+        <li title="hello">BBBBB</li>
+        <li class="box">CCCCC</li>
+        <li title="hello">DDDDDD</li>
+        <li title="two">BBBBBB</li>
+        <li style="display:none">我本来是隐藏的</li>
+    </ul> -->
+
+    <!-- 练习6 表单选择器 -->
+    <!-- <form>
+        用户名: <input type="text" /><br>
+        密 码: <input type="password" /><br>
+        爱 好:
+        <input type="checkbox" checked="checked" />篮球
+        <input type="checkbox" />足球
+        <input type="checkbox" checked="checked" />羽毛球 <br>
+        性 别:
+        <input type="radio" name="sex" value='male' />男
+        <input type="radio" name="sex" value='female' />女<br>
+        邮 箱: <input type="text" name="email" disabled="disabled" /><br>
+        所在地:
+        <select>
+            <option value="1">北京</option>
+            <option value="2" selected="selected">天津</option>
+            <option value="3">河北</option>
+        </select><br>
+        <input type="submit" value="提交" />
+    </form> -->
+
+</body>
+</html>
