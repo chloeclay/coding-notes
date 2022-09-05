@@ -31,33 +31,76 @@
 
   // 6. 点击切换地址tab
   function toggleTabs () {
-
+    $('#store_tabs>li').click(function () {
+      $('#store_tabs>li').removeClass('hover')
+      this.className = 'hover'
+    })
   }
   
-  // 5. 鼠标移入一出切换地址显示隐藏
+  // 5. 鼠标移入移出切换地址显示隐藏
   function address () {
-
+    $('#store_select').hover(function () {
+      $(this).children(':gt(0)').show()
+      $('#store_close').click(function () {
+        $('#store_select').children(':gt(0)').hide()
+      })
+    },function () {
+      $(this).children(':gt(0)').hide()
+      
+    })
   }
 
   // 4. 分享按钮显示或隐藏更多图标
   function shareMore () {
-
+    var isOpened = false
+    $('#shareMore').click(function () {
+      if (isOpened) {
+        $(this).parent().width(155)
+        $('.share_kaixin,.share_douban').hide()  
+        $(this).children().removeClass('backword')      
+        isOpened = false
+      } else {
+        $(this).parent().width(200)
+        $('.share_kaixin,.share_douban').show()
+        $(this).children().addClass('backword')
+        isOpened = true
+      }
+    })
   }
 
   // 3. 搜索框关键字匹配列表
   function searchTab () {
-
+    $('#txtSearch')
+      .on('keyup focus',function () {
+        var text = this.value.trim()
+        if (text) {
+          $('#search_helper').show()
+        }
+      })
+      .blur(function () {
+        $('#search_helper').hide()
+      })
   }
 
   // 2. 二级菜单显示隐藏
   function subShowHide ( ) {
-    
+    $('.cate_item').hover(function () {
+      $(this).children().eq(1).show()
+    },function () {
+      $(this).children().eq(1).hide()
+    })
   }
 
   // 1. 鼠标移入显示,移出隐藏
   // 目标: 手机京东, 客户服务, 网站导航, 我的京东, 去购物车结算, 全部商品
   function showHide() {
-    
+    $('[name = show_hide]').hover(function () {
+      var id = '#' + this.id
+      $(id + '_items').show()
+    },function () {
+      var id = '#' + this.id
+      $(id + '_items').hide()
+    })
   }
 
  })
