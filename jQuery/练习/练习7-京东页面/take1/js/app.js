@@ -28,6 +28,135 @@
   toggleTabs()
   minicart()
   tabsChange()
+  moveUl()
+  hoverMiniPics()
+  hoverMediumImg()
+
+  // 11. 当鼠标在中图上移动时, 显示对应大图的附近部分区域
+  function hoverMediumImg () {
+    var $mask = $('#mask')
+    var $maskTop = $('#maskTop')
+    var $maskTop = $('#maskTop')
+    var $mediumImg = $('#mediumImg')
+    var $largeImgContainer = $('#largeImgContainer')
+    var $loading = $('#loading')
+    var $largeImg = $('#largeImg')
+    var boxWidth = $maskTop.width()
+    var boxHeight = $maskTop.height()
+    var maskWidth = $mask.width()
+
+    // move the little yellow square
+    $maskTop.hover(function () {
+      $mask.show()
+
+      // load largeImg
+      var src = $mediumImg.attr('src').replace('-m.','-l.')
+      $largeImg.attr('src',src)
+      $largeImgContainer.show()
+
+      $largeImg.on('load',function () {
+        // 2. move large img
+          // change large img's container size
+          var largeWidth = $largeImg.width()
+          var largeHeight = $largeImg.height()
+          $largeImgContainer.css({
+            width: largeWidth/2,
+            heigth: largeHeight/2
+          })
+          $loading.hide()
+          $largeImg.show()
+        // 1. move little yellow square
+        // get mouse position
+        $maskTop.mousemove(function (event) {
+          // 1st 
+          var mouseTop = event.offsetY
+          var mouseLeft = event.offsetX
+          var maskTop = mouseTop - maskWidth / 2
+          var maskLeft = mouseLeft - maskWidth / 2
+          
+          if (maskTop < 0) {
+            maskTop = 0
+          } else if (maskTop > boxHeight - maskWidth) {
+            maskTop = boxHeight - maskWidth
+          }
+          if (maskLeft < 0) {
+            maskLeft = 0
+          } else if (maskLeft > boxWidth - maskWidth) {
+            maskLeft = boxWidth - maskWidth
+          }
+          $mask.css({
+            left: maskLeft,
+            top: maskTop
+          })
+          // 2nd
+          var largeLeft = -maskLeft * largeWidth / boxWidth
+          var largeTop = -maskTop * largeHeight / boxHeight
+          $largeImg.css({
+            left: largeLeft,
+            top: largeTop
+          })
+        })
+        
+      })
+
+            
+
+    },function () {
+      $mask.hide()
+      $largeImgContainer.hide()
+      $largeImg.hide()
+    })
+  }
+
+  // 10. 当鼠标悬停在某个小图上,在上方显示对应的中图
+  function hoverMiniPics () {
+    var $lis = $('#icon_list>li')
+    $lis.hover(function () {
+      $(this).children().addClass('hoveredThumb')
+      var src = $(this).children().attr('src').replace('.jpg','-m.jpg')
+      $('#mediumImg').attr('src',src)
+    },function () {
+      $(this).children().removeClass('hoveredThumb')
+    })
+  }
+
+  // 9. 点击向右/左, 移动当前展示商品的小图片
+  function moveUl () {
+    var $ul = $('#icon_list')
+    var $left = $('#preview>h1>a:first')
+    var $right = $('#preview>h1>a:last')
+    var $lis = $ul.children('li')
+    var SHOW_COUNT = 5
+    var img_count = $lis.length
+    var move_count = 0
+    var IMG_WIDTH = $lis.eq(0).width()
+    if (img_count>SHOW_COUNT) {
+      $right.attr('class','forward')
+    }
+    $right.click(function () {
+      if (move_count === img_count - SHOW_COUNT) {
+        return
+      }
+      move_count++
+      $left.attr('class','backward')
+      if (move_count === img_count - SHOW_COUNT) {
+        $right.attr('class','forward_disabled')
+      }
+      $ul.css('left',-move_count*IMG_WIDTH)
+    })
+    
+    $left.click(function () {
+      if (move_count === 0) {
+        return
+      }
+      move_count--
+      $right.attr('class','forward')
+      if (move_count === 0) {
+        $left.attr('class','backward_disabled')
+      }
+      $ul.css('left',-move_count*IMG_WIDTH)
+    })
+  }
 
   // 8. 点击切换产品选项 (商品详情等显示出来)
   function tabsChange () {
