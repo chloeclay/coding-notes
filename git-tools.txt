@@ -1,0 +1,2 @@
+É¾³ıÎÄ¼ş£º
+git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch FILENAME'
