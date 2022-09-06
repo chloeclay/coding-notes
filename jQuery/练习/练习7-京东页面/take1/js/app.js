@@ -26,6 +26,32 @@
   shareMore()
   address()
   toggleTabs()
+  minicart()
+  tabsChange()
+
+  // 8. 点击切换产品选项 (商品详情等显示出来)
+  function tabsChange () {
+    var $lis = $('.main_tabs>li')
+    var $divs = $('.main_tabs>div').filter(':gt(0)')
+    $lis.click(function () {
+      $lis.removeClass('current')
+      this.className = 'current'
+      var index = $(this).index()
+      $divs.hide()
+      $divs.eq(index).show()
+    })
+  }
+
+  // 7. 鼠标移入移出切换显示迷你购物车
+  function minicart () {
+    $('#minicart').hover(function () {
+      this.className = 'minicart'
+      $(this).children(':last').show()
+    },function () {
+      this.className = ''
+      $(this).children(':last').hide()
+    })
+  }
 
   // 6. 点击切换地址tab
   function toggleTabs () {
