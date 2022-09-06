@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>作业练习合集</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+    <p id="property"></p>
+    <p id="split"></p>
+</body>
+<script>
+// 算数运算符 + ==
+    // 1 任何数据+字符串都会先变string再拼串：与先后顺序无关
+        // var a = 100;
+        // var b = "100";
+        // console.log(typeof("" + a)); // string
+    // 2 NaN和任何数据都不相等，判断一个值是否为NaN要用isNaN()函数
+        // var a = 0 / 0;
+        // console.log(isNaN(a)); // true
+// 一元运算符 自增自减 ++ --
+    // 1
+        // var n1 = 10, n2 = 20;
+        // var n = n1++;
+        // console.log(n); // 10
+        // console.log(n1); // 11
+        // n = ++n1;
+        // console.log(n); // 12
+        // console.log(n1); // 12
+        // n = n2--;
+        // console.log(n); // 20
+        // console.log(n2); // 19
+        // n = --n2;
+        // console.log(n); // 18
+        // console.log(n2); // 18
+    // 2
+        // var a = 1;
+        // console.log(a + a++ + ++a + a++ + a++ + a);
+        // var b = true;
+        // console.log(String(true));
+        // var c = "123.56abc";
+        // console.log(parseInt(c));
+        // console.log(parseFloat(c));
+
+// 比较运算符 == != === !==
+    // // 1 
+    //     var a = null;
+    //     console.log(0 == a); // false
+    //     console.log(0 == +a); // true
+    //     console.log(0 != a); // true
+    //     console.log(0 != +a); // false
+    // // 2
+    //     var b = undefined;
+    //     var c = null;
+    //     console.log(c == b); // true
+    //     console.log(c === b); // false
+    // // 3
+    //     var num1 = "true";
+    //     var num2 = "1";
+    //     var num3 = 1;
+    //     console.log(num1 == num2);
+    //     console.log(num1 == num3);
+    // // 4
+    //     var a = NaN;
+    //     console.log(isNaN(a));
+
+// 三元运算符（条件运算符）
+    // 1 获取最大值
+    // var a = 10, b = 120, c = 60;
+    //var max = a > b ? a : b;
+    //max = max > c ? max : c;
+    // 合并：
+    //     var max = a > b ? (a > c ? a : c) : (b > c ? b : c);
+    // alert("最大值为" + max);
+
+// 分支循环 - if语句
+    // 1 输入成绩，成绩为100分时，奖励一辆车；成绩为85 - 99时，奖励一部手机；成绩为60到84时，奖励一本书；成绩低于60时，什么都没有。
+        // var oNote = window.prompt("请输入你的成绩");
+        // if (oNote == 100) {
+        //     alert("奖励一辆车");
+        // } else if (oNote <= 99 && oNote >= 85) {
+        //     alert("奖励一部手机");
+        // } else if (oNote < 84 && oNote >= 60) {
+        //     alert("奖励一本书");
+        // } else if(oNote < 60 && oNote >= 0){
+        //     alert("不及格，重读吧");
+        // }else{
+        //     alert("请输入有效的成绩");
+        // }
+    // 2 按照从大到小的顺序排列三个数
+        // var num1 = +prompt("请输入第一个数字");
+        // var num2 = +prompt("请输入第二个数字");
+        // var num3 = +prompt("请输入第三个数字");
+        // if (num1 > num2 && num1 > num3) {
+        //     if (num2 > num3) {
+        //         alert(num1 + ">" + num2 + ">" + num3);
+        //     }else{
+        //         alert(num1 + ">" + num3 + ">" + num2);
+        //     }
+        // }else if(num2 > num1 && num2 > num3){
+        //     if (num1 > num3) {
+        //         alert(num2 + ">" + num1 + ">" + num3);
+        //     }else{
+        //         alert(num2 + ">" + num3 + ">" + num1);
+        //     }
+        // }else{
+        //     if(num1 > num2){
+        //         alert(num3 + ">" + num1 + ">" + num2);
+        //     }else{
+        //         alert(num3 + ">" + num2+ ">" + num1);
+        //     }
+        // }
+
+
+// 分支循环 switch语句
+        // 1 对于成绩大于等于80分的，输出优秀；大于等于60分的，输出及格；小于60分的，输出不及格。
+        // var oScore = prompt("请输入你的成绩");
+        // 方法1：
+            // switch (parseInt(oScore / 10)) {
+            //     case 10:
+            //     case 9:
+            //     case 8:
+            //         alert("你的成绩为优秀");
+            //         break;
+            //     case 7:
+            //     case 6:
+            //         alert("你的成绩为及格");
+            //         break;
+            //     default:
+            //         alert("你的成绩不及格");
+            //         break;
+            // }
+        // 方法2：
+            // switch (true) {
+            //     case oScore >= 80 && oScore <= 100:
+            //         alert("你的成绩为优秀");
+            //         break;
+            //     case oScore >=60 && oScore < 80:
+            //         alert("你的成绩为及格");
+            //         break;
+            //     case oScore < 60 && oScore >= 0:
+            //         alert("你的成绩为不及格");
+            //         break;
+            //     default:
+            //         alert("请输入正确的值");
+            //         break;
+            // }
+
+
+// 循环语句 - while
+    // 1 假如投资的年利率为5%，试求从1000元增长至5000元需要多少年。
+        // var oMoney = 1000;
+        // var oYear = 0;
+        // while (oMoney < 5000) {
+        //     oMoney *= 1.05;
+        //     oYear++;
+        // }
+        // console.log(oYear);
+    // 2 输入成绩，若成绩值超过100或小于0则让用户重新输入，并显示成绩合格与否。
+        // while (true) {
+        //     var oScore = prompt("请输入你的成绩");
+        //     if (oScore >= 0 && oScore <= 100) {
+        //         break;
+        //     }
+        //     alert("请输入有效的成绩");
+        // }
+        // if (oScore >= 60) {
+        //     alert("你的成绩合格啦");
+        // }else{
+        //     alert("你的成绩不及格");
+        // }
+
+// 循环语句 - for
+    // 1 打印1-100之间所有的奇数之和。
+        // for (var i = 1, sum = 0; i < 101; i++) {
+        //     if (i % 2 != 0) {
+        //         sum += i;
+        //     }
+        // }
+        // console.log("1-100之间所有奇数的和为" + sum);
+    // 2 打印1-100之间所有7的倍数的个数和总和。
+        // for (var a = 1, sum = 0, count = 0; a < 101; a++) {
+        //     if (a % 7 == 0) {
+        //         document.write(a + "<br/>");
+        //         sum += a;
+        //         count++;
+        //     }
+        // }
+        // document.write("1-100之间所有7的倍数的总和为" + sum);
+        // document.write("，个数为" + count);
+    // 3 打印所有水仙花数：水仙花数指一个三位数，每个位数上的数字的三次幂之和等于它本身。
+        // for (let a = 100; a < 1000; a++){
+        //     var i = a % 10;
+        //     var m = parseInt(a / 100);    
+        //     var n = parseInt((a / 10) % 10);
+        //     if (i * i * i + m * m * m + n * n * n == a) {
+        //         console.log("水仙花数包括：" + a);
+        //     }
+        // }
+    // 4 用户输入数字，判断是否为质数。
+        // while (true) {
+        //     var a = prompt("请输入一个大于1的整数来判断是否为质数");
+        //     var flag = true;
+        //     if (a > 1) {
+        //         break;
+        //     }else{
+        //         alert("请输入大于1的整数");
+        //     }
+        // }
+        // for (var b = 2; b < a; b++) {
+        //     if (a % b == 0) {
+        //         flag = false;
+        //         break;
+        //     }
+        // }
+        // if (flag) {
+        //     alert(a + "是一个质数");
+        // }else{
+        //     alert(a + "不是一个质数");
+        // }
+    // 5 在页面中输出由星号组成的三角形
+        // for (let a = 0; a < 10; a++) {
+        //     for (let b = 0; b < a + 1; b++) {
+        //         document.write("*&nbsp;&nbsp;&nbsp;");
+        //     }
+        //     document.write("<br />");
+        // }
+        // for (let a = 0; a < 10; a++) {
+        //     for (let b = 1; b < 10 - a; b++) {
+        //         document.write("*&nbsp;&nbsp;&nbsp;");
+        //     }
+        //     document.write("<br />");
+        // }
+    // 6 打印99乘法表
+        // for (let a = 0; a < 9; a++) {
+        //     for (let b = 0; b < a + 1; b++) {
+        //         document.write((b+1) + "*" + (a+1) + "=" + (a+1)*(b+1) + "&nbsp;&nbsp;");
+        //     }
+        //     document.write("<br />");
+        // }
+    // 7 打印1-100之间所有的质数
+        // document.write("1-100之间的质数包括：<br />");
+        // for (let a = 2; a <= 100; a++){
+        //         var flag = true;
+        //         for (let b = 2; b < Math.sqrt(a); b++) {
+        //             if (a % b == 0) {
+        //                 flag = false;
+        //                 break;
+        //             }
+        //         }
+        //         if (flag == true) {
+        //             document.write(a + "&nbsp;");  
+        //         }
+        //     }
+
+    
+// 对象
+    // 1 基本性质
+        // var obj = {name: "Chloe"};
+        // obj.hobby = "Oisivete";
+        // delete obj.hobby;
+        // console.log(typeof(obj["123"]));
+    // 2 for in遍历
+        // var obj = {
+        //     name: "Chloe", 
+        //     age: 25,
+        //     hobby: function oHobby() {
+        //         console.log("SHE LIKES SLEEPING!!");
+        //     }
+        // }
+        // for(var a in obj){
+        //     console.log(a, obj[a]);
+        // }
+        // obj.hobby();
+    // 3 使用工厂方法批量创建对象
+            // function newPerson(name, age, gender) {
+            //     var obj = new Object();
+            //     obj.name = name;
+            //     obj.age = age;
+            //     obj.gender = gender;
+            //     obj.returnName = function () {
+            //         console.log(this.name);
+            //     }
+            //     return obj;
+            // }
+            // var person1 = newPerson("Hugo", 25, "Homme");
+            // var person2 = newPerson("Claire", 25, "Femme");
+            // var person3 = newPerson("Martin", 25, "Homme");
+            // console.log(person1, person2, person3);
+            // person1.returnName();
+
+
+// 函数
+    // 1 定义函数，判断一个数字是否是偶数，返回true/false。
+        // function isEvenNumber(a) {
+        //     return a % 2 == 0;
+        // }
+        // var result = isEvenNumber(100);
+        // document.write("result = " + result);
+    // 2 定义函数，根据半径计算面积，返回结果。
+        // function areaCircle(r) {
+        //     return 3.14 * r * r;
+        // }
+        // var result = areaCircle(10);
+        // document.write(result);
+    // 3 创建函数，使其可以在控制台输出一个人的信息。
+        // function person(name, age, gender) {
+        //     console.log("我是" + name + "，我今年" + age + "岁了，我是一个" + gender + "人。");
+        // }
+        // person()
+        // -------------------------
+        // var obj = {name: "小王", age: 25, gender: "女"};
+        // function person(obj) {
+        //     console.log("我是" + obj.name + "，我今年" + obj.age + "岁了，我是一个" + obj.gender + "人。")
+        // }
+        // function func(a) {
+        //     a(obj);
+        // }
+        // func(person);
+    // 4 返回值
+        // function func1() {
+        //     function func2() {
+        //         alert("I'm Iron Man");
+        //     }
+        //     return func2;
+        // }
+        // func1()();
+    // 5 作用域
+            // 1) 全局作用域
+                // function func(){
+                //     a = 10;
+                // }
+                // func();
+                // console.log("a = " + a);
+            // 2) 函数作用域
+                // function func(){
+                //     var a = 10;
+                //     function min(){
+                //         console.log(a);
+                //     }
+                //     min(); // 正常执行 不会报错
+                // }
+                // func();
+                // console.log(a); // not defined 未声明
+
+            // 3) 说出以下代码的执行结果
+                // // ------------------------
+                // var a = 123;
+                // function func() {
+                //     alert(a);
+                // }
+                // func(); // 123 
+                // // ------------------------
+                // var a = 123;
+                // function func() {
+                //     alert(a); 
+                //     var a = 456;
+                // }
+                // func(); // undefined
+                // alert(a); // 123
+                // // ------------------------
+                // var a = 123;
+                // function func() {
+                //     alert(a); 
+                //     a = 456;
+                // }
+                // func(); // 123
+                // alert(a); // 456
+                // // ------------------------
+                // var a = 123;
+                // function func(a) {
+                //     alert(a); 
+                //     a = 456;
+                // }
+                // func(); // undefined
+                // alert(a); // 123
+                //  -------------------------
+                // var a = 123;
+                // function func(a) {
+                //     alert(a);
+                //     a = 456;
+                // }
+                // func(); // undefined
+                // func(123); // 123
+                // alert(a); // 123
+    // 6 隐含参数this
+        // 性质测试
+        // function func() {
+        //     console.log(this.name);
+        // }
+        // var name = "window";
+        // var obj1 = {
+        //     name: "obj1",
+        //     fun: func
+        // }
+        // var obj2 = {
+        //     name: "obj2",
+        //     fun: func
+        // }
+        // func(); // window
+        // obj1.fun(); // obj1
+        // obj2.fun(); // obj2
+    // 7 构造函数
+        // 1 初代
+        // function Person(name, age, gender){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.gender = gender;
+        //     this.printName = function () {
+        //         alert("我叫" + this.name);
+        //     }
+        // }
+        // var oPerson1 = new Person("小王", 25, "美少女");
+        // var oPerson2 = new Person("小赵", 25, "大美女");
+        // var oPerson3 = new Person("小郎", 24, "美美女");
+        // console.log(oPerson1, oPerson2, oPerson3);
+        // oPerson3.printName();
+        // 2 优化 - 原型对象
+        // function Person(name, age, gender){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.gender = gender;
+        // } 
+        // Person.prototype.printName = function () {
+        //     alert("我叫" + this.name);
+        // }
+        // var oPerson1 = new Person("小王", 25, "美少女");
+        // var oPerson2 = new Person("小赵", 25, "大美女");
+        // var oPerson3 = new Person("小郎", 24, "美美女");
+        // console.log(oPerson1, oPerson2, oPerson3); // 王赵郎
+        // oPerson3.printName(); 
+        // console.log(oPerson3 instanceof Person); // true
+    // // 8 原型对象
+    //         function Test(name) {
+    //             console.log(name);
+    //         }
+    //         Test.prototype.name = name;
+    //         var oTest = new Test("名字");
+    //         console.log(oTest);
+    //         console.log(Test.__proto__.__proto__
+    //         );
+
+
+// 数组
+    // 1 属性 constructor
+    // var arr = [1, 2, 333, 2];
+    // console.log(arr.constructor);
+    // 2 遍历
+    // function Person(name, age) {
+    //     this.name = name;
+    //     this.age = age;
+    // }
+    // Person.prototype.toString = function () {
+    //     return "Person[name=" + this.name + ",age=" + this.age+"]";
+    // }
+    // var oPerson1 = new Person("A", 25);
+    // var oPerson2 = new Person("B", 10);
+    // var oPerson3 = new Person("C", 28);
+    // var oPerson4 = new Person("D", 15);
+    // var oPerson5 = new Person("E", 56);
+
+    // var perArr = [oPerson1, oPerson2, oPerson3, oPerson4, oPerson5];
+
+    // // 创建一个函数，将年龄大于18岁的人提取出来，封装到一个新的数组中并返回。
+    // function getAdult(arr){
+    //     var afterEighteen = new Array();
+    //     for (let i = 0; i < arr.length; i++) {
+    //         var oAge = arr[i].age;
+    //             if (oAge >= 18) {
+    //                 afterEighteen.push(perArr[i]);
+    //             }
+    //     }
+    //     return afterEighteen;
+    // }   
+    // var result = getAdult(perArr);
+    // console.log(result);
+    // 3 数组去重
+    // var arr = [1,1,2,3,2,2,2,1,3,4,2,5,4];
+    // for (let i = 0; i < arr.length; i++) {
+    //     for (let m = i + 1; m < arr.length; m++) {
+    //         if (arr[i] == arr[m]) {
+    //             arr.splice(m, 1);
+    //             m--;
+    //         }
+    //     }
+    // }
+    // console.log(arr);
+    // 4 sort()方法
+    // var arr = [1,1,2,3,2,2,2,1,3,4,2,5,4];
+    // arr.sort(function (a,b) {
+    //     return b - a;
+    // });
+    // console.log(arr);
+    // 5 写出下列代码的输出值
+        // function A(){}
+        // function B(a) {
+        //     this.a = a;
+        // }
+        // function C(a) {
+        //     if (a) {
+        //         this.a = a;
+        //     }
+        // }
+        // A.prototype.a = 1; 
+        // B.prototype.a = 1; 
+        // C.prototype.a = 1; 
+    // 6 Date() 对象
+        // var oDay = new Date("07/17/2022 15:54:44");
+        // console.log(oDay.getMonth());
+    // 7 Math() 对象
+    // console.log(Math.ceil(1.0));
+    // console.log(Math.ceil(1.1));
+    // console.log(Math.ceil(1.00001));
+        // 生成8-12之间的随机整数
+        // for (let i = 0; i < 10; i++) {
+        //     console.log(Math.round(Math.random()*4) + 8);
+        // }
+// 正则表达式
+    // 1 创建一个正则表达式，检查一个字符串是否是一个合法手机号
+        // 1.以1开头 ^1
+        // 2.第二位是3-9 [3-9]
+        // 3.共11位 [0-9]{9}$
+        // var phoneReg = /^1[3-9][0-9]{9}$/;
+        // while (true) {
+        //     var phoneStr = prompt("请输入您的手机号");
+        //     if (phoneReg.test(phoneStr)) {
+        //         alert("您已成功登记");
+        //         break;
+        //     }else{
+        //         alert("请输入正确的手机号");
+        //     }
+        // }
+    // // 2 创建正则表达式，检查一个字符串是否是一个合法邮箱
+    //    var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+    //    var email = "__swefj555.lowe@jwkef.com";
+    //    console.log(emailReg.test(email));
+
+</script>

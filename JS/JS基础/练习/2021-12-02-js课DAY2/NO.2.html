@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS学习day2</title>
+    <style>
+        img{
+            width: 300px;
+            height: auto;
+            clip-path: inset(30% 0 30% 0);
+            margin: 0 auto;
+            transform: translate(0, -190px);
+            display: none;
+        }
+        input{
+            width: 80px;
+            height: 30px;
+            background-color: blanchedalmond;
+            font-size: 20px;
+            font-weight: 300;
+            color: white;
+            border-radius: 10px;
+        }
+        #show{
+            transform: translate(100px, 280px);
+        }
+        #hide{
+            transform: translate(100px, 280px);
+        }
+        
+        input:hover{
+            background-color: wheat;
+            color: gray;
+        }
+        .showOrHide{
+            height: 400px;
+        }
+        .seperator{
+            height: 2px;
+            background-color: silver;
+        }
+
+        #color{
+            background: papayawhip;
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+        }
+        #rouge, #jaune, #bleu{
+            margin: 20px 15px;
+        }
+       
+/* 关闭广告练习 */
+        #closeid{
+            position: relative;
+        }
+        #advertisement{
+            display: block;
+        }
+        #btnclose{
+            position: absolute;
+            right: 24px;
+            top: 0;
+            background-color: rgba(245, 245, 245, 0.90);
+            cursor: default;
+            padding: 3px;
+            color: rgb(241, 214, 59);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="showOrHide">
+    <img src="../2021-11-22-轮播图练习/images/0.jpg" id="img">
+        <input type="button" value="Show" id="show">
+        <input type="button" value="Hide" id="hide">
+    </div>
+    <div class="seperator"></div>
+    <div class="colorChange">
+        <input type="button" value="Rouge" id="rouge">
+        <input type="button" value="Jaune" id="jaune">
+        <input type="button" value="Bleu" id="bleu">
+        <section id="color"></section>
+    </div>
+    <div class="seperator"></div>
+    <!-- 关闭广告练习 -->
+    <div id="closeid">
+        <img src="../2021-11-22-轮播图练习/images/2.jpg" alt="Belle Image" id="advertisement">
+        <section id="btnclose">Close X</section>
+    </div>
+    <div class="seperator"></div>
+
+
+
+</body>
+<script>
+    // Faire disparaître l'image
+    // 获取事件源
+    var btnShow = document.getElementById("show");
+    var btnHide = document.getElementById("hide");
+    var imgBox = document.getElementById("img");
+    // 事件类型
+    btnShow.onclick = function(){
+        // 书写事件驱动程序
+        imgBox.style.display = "block";
+        btnShow.style.transform = "translate(100px, -370px)";
+        btnHide.style.transform = "translate(100px, -370px)";
+    }
+    btnHide.onclick = function(){
+        // 书写事件驱动程序
+        imgBox.style.display = "none";
+        btnHide.style.transform = "translate(100px, 280px)";
+        btnShow.style.transform = "translate(100px, 280px)";
+    }
+
+
+    // 变色按钮
+    var btnRouge = document.getElementById("rouge");
+    var btnJaune = document.getElementById("jaune");
+    var btnBleu = document.getElementById("bleu");
+    var boxColor = document.getElementById("color");
+
+    btnRouge.onclick = function () {
+        boxColor.style.background="rgb(221, 160, 150)";
+    }
+    btnJaune.onclick = function () {
+        boxColor.style.background="#FFCC80";
+    }
+    btnBleu.onclick = function () {
+        boxColor.style.background="rgb(169, 199, 216)";
+    }
+
+// 关闭广告练习
+    var btnClose = document.getElementById("btnclose");
+    var closeImage = document.getElementById("advertisement");
+
+    btnClose.onclick = function () {
+        closeImage.style.display = "none";
+        btnClose.style.display = "none";
+    }
+
+</script>
+</html>

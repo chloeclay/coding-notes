@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab切换练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            width: 600px;
+            height: 400px;
+            background-color: rgba(241, 207, 163, 0.904);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .box{
+            width: 600px;
+            height: 350px;
+            position:absolute;
+            left: 0;
+            top: 50px;
+            color: ghostwhite;
+            text-align: center;
+            line-height: 350px;
+            font-size: 150px;
+        }
+    
+        .box:nth-of-type(1){
+            background: rgb(196, 115, 115);
+        }
+        .box:nth-of-type(2){
+            background: rgba(248, 208, 97);
+        }
+        .box:nth-of-type(3){
+            background: rgb(252, 245, 152);
+        }
+        .box:nth-of-type(4){
+            background: rgba(152, 214, 90);
+        }
+        .box:nth-of-type(5){
+            background: rgba(140, 204, 195);
+        }
+        .box:nth-of-type(6){
+            background: rgba(189, 163, 204);
+        }
+        ul li{
+            width: 100px;
+            height: 50px;
+            float: left;
+        }
+        ul li:nth-of-type(1){
+            background: rgb(196, 115, 115);
+        }
+        ul li:nth-of-type(2){
+            background: rgba(248, 208, 97);
+        }
+        ul li:nth-of-type(3){
+            background: rgb(252, 245, 152);
+        }
+        ul li:nth-of-type(4){
+            background: rgba(152, 214, 90);
+        }
+        ul li:nth-of-type(5){
+            background: rgba(140, 204, 195);
+        }
+        ul li:nth-of-type(6){
+            background: rgba(189, 163, 204);
+        }
+    </style> 
+</head>
+<body>
+    <h1>
+        Exemple de Tab
+    </h1>
+    <div class="wrap">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        // 1. 获取元素
+        var aLi = document.getElementsByTagName("li");
+        var aBox = document.getElementsByClassName("box");
+
+        // 2. 添加事件
+        function none() {
+            for (var i = 0; i < aLi.length; i++) {
+                aBox[i].style.display = "none";
+            }
+        }
+        none();
+        aBox[0].style.display = "block";
+
+        // aLi[0].onclick = function(){
+        //     none();
+        //     aBox[0].style.display = "block";
+        // }
+        // aLi[1].onclick = function(){
+        //     none();
+        //     aBox[1].style.display = "block";
+        // }
+        // aLi[2].onclick = function(){
+        //     none();
+        //     aBox[2].style.display = "block";
+        // }
+        // aLi[3].onclick = function(){
+        //     none();
+        //     aBox[3].style.display = "block";
+        // }
+        // aLi[4].onclick = function(){
+        //     none();
+        //     aBox[4].style.display = "block";
+        // }
+        // aLi[5].onclick = function(){
+        //     none();
+        //     aBox[5].style.display = "block";
+        // }
+
+        for (var i = 0; i < aBox.length; i++) {
+            //  先储存i
+            aLi[i].index = i;
+           aLi[i].onclick = function () {
+               none();
+               aBox[this.index].style.display = "block";
+           }
+        }
+
+        
+
+
+
+
+    </script>
+</body>
+</html>

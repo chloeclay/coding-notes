@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background: #333;
+            position: absolute;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            background:silver;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            drag(box1);
+            drag(box2);
+            function drag(box) {
+                box.onmousedown = function (e) {
+                    var difX = e.clientX - box.offsetLeft;
+                    var difY = e.clientY - box.offsetTop;
+                    document.onmousemove = function (e) {
+                        var x = e.clientX;
+                        var y = e.clientY;
+                        
+                        box.style.left = x - difX + "px";
+                        box.style.top = y - difY + "px";
+                    }
+                    document.onmouseup = function () {
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+
+                    }
+                    return false;
+                }
+            }
+        };
+
+    </script>
+</head>
+<body>
+    <div id="box2">
+    </div>
+    <div id="box1"></div>
+</body>
+</html>

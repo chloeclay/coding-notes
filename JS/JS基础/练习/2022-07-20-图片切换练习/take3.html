@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图练习</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+#outer{
+    width: 500px;
+    text-align: center;
+    margin: 50px auto;
+}
+img{
+    width: 500px;
+    height: 350px;
+}
+button{
+    border: 1px solid cadetblue;
+    border-radius: 50px;
+    padding: 5px;
+    font-size: 20px;
+    color: cornsilk;
+    background-color: rgba(33, 154, 158, 0.473);
+}
+#default{
+    color: rgb(29, 107, 107);
+    font-size: 20px;
+}
+</style>
+<script type="text/javascript">
+    window.onload = function () {
+        var imgArr = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg"];
+        var images = document.getElementsByTagName("img");
+        var btnPrev = document.getElementById("prev");
+        var btnNext = document.getElementById("next");
+        var defaultNum = document.getElementById("default");
+        var index = 0;
+
+        btnPrev.onclick = function () {
+            index --;
+            if (index < 0) {
+                index = imgArr.length - 1;
+            }
+            images[0].src = imgArr[index];
+            defaultNum.innerHTML = index + 1 +"/6"
+
+        }
+        btnNext.onclick = function () {
+            index ++;
+            if (index > imgArr.length - 1) {
+                index = 0;
+            }
+            images[0].src = imgArr[index];
+            defaultNum.innerHTML = index + 1 +"/6"
+        }
+
+    }
+</script>
+</head>
+<body>
+    <div id="outer">
+        <h1>Chloé's Screen</h1>
+        <img src="images/1.jpg">
+        <button id="prev">&nbsp;<&nbsp;</button>
+        <span id="default">1/6</span>
+        <button id="next">&nbsp;>&nbsp;</button>
+    </div>
+
+</body>
+</html>

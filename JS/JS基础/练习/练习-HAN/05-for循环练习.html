@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>05-for循环练习</title>
+    <style>
+        /* body{
+            text-align: center;
+        } */
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+    // 利用for循环嵌套打印三角形
+    for(var a = 0; a < 10; a++){
+        for (var b = 10; b > a; b--){
+                document.write("@ ");
+        }
+        document.write("<br/>");
+    }
+
+    // 利用for循环嵌套打印平行四边形
+    for(var a = 0; a < 10; a++){
+        for (var c = 0; c < a; c++) {
+            document.write("&nbsp;&nbsp;");
+        }
+        for (var b = 10; b > 0; b--){
+                document.write("@ ");
+        }
+        document.write("<br/>");
+    }
+
+
+</script>
+</html>

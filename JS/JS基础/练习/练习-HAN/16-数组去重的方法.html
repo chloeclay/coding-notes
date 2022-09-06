@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>16-数组的去重方法</title>
+</head>
+<body>
+</body>
+<script>
+var arr = [1, 1, 1, 2, 2, 2, 3, 3, 4, 5, 6, 7, 8, 8, 8, 8];
+// splice()删除项
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] == arr[j]) {
+                arr.splice(j, 1);
+                j--;
+            }
+        }
+    }
+    console.log(arr);
+
+var arr2 = [1, 1, 1, 2, 2, 2, 3, 3, 4, 5, 6, 7, 8, 8, 8, 8, 0, 0, 9];
+// push() indexOf()
+    var arr3 = [];
+    for (let a = 0; a < arr2.length; a++) {
+        if (arr3.indexOf(arr2[a]) === -1) {
+            arr3.push(arr2[a]);
+        }
+    }
+    console.log(arr3);
+
+
+// 复习
+// parseInt & parseFloat
+
+var a = "chloe";
+var b = "riiie222";
+var c = "12.221-dkewef";
+var d = "55833.4456";
+
+console.log(parseInt(a));
+console.log(parseInt(b));
+console.log(parseInt(c));
+console.log(parseInt(d));
+console.log(parseFloat(a));
+console.log(parseFloat(b));
+console.log(parseFloat(c));
+console.log(parseFloat(d));
+console.log(Number(d));
+
+
+// 运算符
+
+console.log(null == undefined);
+
+var result = 1 + +"2" + 3;
+console.log(result);
+console.log(typeof result);
+
+// 对象
+var obj = new Object;
+obj.name = "Chloe";
+obj["age"] = 25;
+obj.func = function(){
+    return "Apprendre";
+}
+console.log(obj);
+console.log(obj.func());
+
+var personne = {
+    name : "Chloe",
+    age : 25,
+    hobby : function(){
+         console.log("Dormir");
+    }
+}
+console.log(personne);
+
+
+
+
+// ---------------------------复习完---------------------------
+
+
+// splice() 数组去重
+
+var oArr = [1, 10, 100, 40, -9, 1, 1, 2, 2, 2, 3, 3, 4, 5, 6, 7, 8, 8];
+// for (let i = 0; i < oArr.length; i++) {
+//     for (let j = i + 1; j < oArr.length; j++) {
+//         if (oArr[i] == oArr[j]) {
+//             oArr.splice(j, 1);
+//             j--;
+//         }
+//     }
+// }
+// console.log(oArr);
+
+// // indexOf() push() 数组去重
+// var newArr = [];
+// for (let i = 0; i < oArr.length; i++) {
+//     if (newArr.indexOf(oArr[i]) === -1) {
+//         newArr.push(oArr[i]);
+//     }
+// }
+// console.log(newArr);
+
+// sort() 数组去重
+
+// oArr.sort(function(a, b){
+//     return a - b;
+// })
+// for (let i = 0; i < oArr.length; i++) {
+//     if (oArr[i] == oArr[i + 1]) {
+//         oArr.splice(i + 1, 1);
+//         i--;
+//     }
+// }
+// console.log(oArr);
+
+// includes() + ! 数组去重
+// var newArr = [];
+// for (let i = 0; i < oArr.length; i++) {
+//     if (!newArr.includes(oArr[i])) {
+//         newArr.push(oArr[i]);
+//     }
+// }
+// console.log(newArr);
+
+// filter() indexOf() 数组去重
+// var arr1 = [1, 111, 1, 423, 22, 22, 214, 1];
+// var arrNew = arr1.filter(function(val, index, array){
+    //     return array.indexOf(val) === index;
+    // });
+    // console.log(arr1);
+    // console.log(arrNew);
+    
+//  es 6 new Set()
+var arr1 = [1, 111, 1, 423, 22, 22, 214, 1];
+console.log([...new Set(arr1)]);
+console.log(Array.from(new Set(arr1)));
+
+
+</script>
+</html> 
+

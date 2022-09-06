@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图练习</title>
+<style>
+*{
+    list-style-type: none;
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+    color: rgb(127, 190, 192);
+    line-height: 45px;
+    margin-top: 40px;
+}
+#guide{
+    background-color: rgba(255, 248, 220, 0.438);
+    text-align: center;
+    font-size: 15px;
+    color: rgba(33, 68, 70, 0.76);
+}
+#outer{
+    margin: 50px auto;
+    text-align: center;
+    width: 500px;
+    height: 350px;
+    position: relative;
+}
+img{
+    width: 500px;
+    height: 350px;
+}
+button{
+    position: absolute;
+    top: 42%;
+    border: none;
+    font-size: 30px;
+    color: cornsilk;
+    background: rgba(243, 239, 227, 0.253);
+}
+#prev{
+    left: 10px;
+}
+#next{
+    right: 10px;
+}
+</style>
+<script type="text/javascript">
+window.onload = function(){    
+    var btnPrev = document.getElementById("prev");
+    var btnNext = document.getElementById("next");
+    var images = document.getElementById("img");
+    var arrImg = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg",];
+    var guide = document.getElementById("guide");
+    var index = 0;
+    btnPrev.onclick = function () {
+        index--;
+        if (index < 0) {
+            index = arrImg.length - 1;
+        }
+            images.src = arrImg[index];
+            guide.innerHTML = (index + 1) + "/" + arrImg.length;
+        }
+        
+        btnNext.onclick = function () {
+            index++;
+            if (index > arrImg.length - 1) {
+                index = 0;
+            }
+            images.src = arrImg[index];
+            guide.innerHTML = (index + 1) + "/" + arrImg.length;
+    }
+}
+
+</script>
+</head>
+<body>
+    <h1>Chloé's Screen</h1>
+    <div id="outer">
+            <img id="img" src="images/1.jpg">
+        <div id="guide">1/6</div>
+        <button id="prev"><</button>
+        <button id="next">></button>
+    </div>
+</body>
+</html>

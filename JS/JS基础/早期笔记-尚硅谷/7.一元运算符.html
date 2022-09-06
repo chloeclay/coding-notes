@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+/* 
+一元运算符，只需要一个操作数
++ 正号
+      正号不会对数字产生影响
+- 负号
+      负号可以对数字进行取反
+      对于非数字，先转换成Number然后再进行取反
+      可以对其他数据类型使用+号将其转换为Number，原理和Number()一样
+ */
+
+var a = 123;
+a = +a;
+console.log("a =" +a);
+
+var a = 123;
+a = -a;
+console.log("a =" +a);
+
+var a = 123;
+a = true;
+a = -a;
+console.log("a =" +a); // -1
+console.log(typeof a); // number
+
+// 加号可以把任意类型数据转换为Number :
+
+var result = 1 + +"2" + 3;
+console.log("result = "+result); // "result = 6"
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

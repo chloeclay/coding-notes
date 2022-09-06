@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+// && || 非布尔值的情况
+
+
+      /* 与运算&&
+       * 对于非布尔值进行与或运算时，会先将其转换成布尔值再运算，并且返回原值。
+       * true && true -> 返回第二个值
+       * false && true -> 返回false值
+       * false && false -> 返回第一个false值
+       * 
+       * 规律总结： 如果第一个值为true，则必然返回第二个值
+       *          如果第一个值为false，则必然返回第一个值
+       */
+
+       //true && true
+       var result = 1 && 2;
+       console.log("result = "+result);  // "result = 2"
+       //false && true
+       var result = 0 && 2;
+       console.log("result = "+result); // "result = 0"
+       //false && false
+       var result = NaN && 0;
+       console.log("result = "+result); //"result = NaN"
+
+      /* 或运算||
+       * 对于非布尔值进行与或运算时，会先将其转换成布尔值再运算，并且返回原值。
+       * true && true -> 返回第一个值
+       * false && true -> 返回true值
+       * false && false -> 返回第二个false值
+       * 
+       * 规律总结： 如果第一个值为true，则必然返回第一个值
+       *          如果第一个值为false，则必然返回第二个值
+       */
+
+       //true && true
+       var result = 1 || 2;
+       console.log("result = "+result);  // "result = 1"
+       //false && true
+       var result = 0 || 2;
+       console.log("result = "+result); // "result = 2"
+       //false && false
+       var result = NaN || 0;
+       console.log("result = "+result); //"result = 0"
+
+       //e.g.
+       var result = "" || "Hello";
+       //console.log("result = "+result); // "result = Hello"
+
+       result = -1 || "Hello";
+       console.log("result = "+result); // "result = -1"
+       
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

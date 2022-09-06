@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>12-闭包含数实现简单计算器功能</title>
+</head>
+<body>
+<h1>Simple Calculator</h1>
+<input type="number" id="num1"><br>
+<input type="number" id="num2"><br>
+<button onclick="calc('+')">+</button>
+<button onclick="calc('-')">-</button>
+<button onclick="calc('*')">x</button>
+<button onclick="calc('/')">÷</button>
+<h2>=<span id="res"></span></h2>
+    
+</body>
+<script>
+/* 流程：
+1. 获取元素
+2. 编写方法
+3. 调用方法 */
+
+    // 0. 声明全局变量 res 储存结果
+    var res;
+
+    // 1. 获取元素
+    var oNum1 = document.getElementById("num1");
+    var oNum2 = document.getElementById("num2");
+    var oRes = document.getElementById("res");
+    var oBtns = document.getElementsByTagName("button");
+
+    // 2. 封装函数
+    function calc(type){
+        oRes.innerHTML = eval(Number(oNum1.value) + type + Number(oNum2.value));
+    }
+
+
+
+</script>
+</html> 

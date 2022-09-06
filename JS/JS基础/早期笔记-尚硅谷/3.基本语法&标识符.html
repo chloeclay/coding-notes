@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        多行注释
+        */
+
+        //后单行注释
+
+        //基本语法
+        /*
+        1. JS中严格区分大小写
+        2. JS中每条语句以分号；结尾
+           - 如果不写分号，浏览器会自动添加，但消耗系统资源，且有时会加错，所以必须写
+        3. JS中会自动忽略空格和换行 -> 可以对代码进行格式化
+        */
+
+        //字面量和变量
+        /*
+        1. 字面量：常量，不可改变的值。可直接使用。但一般不会直接使用，不方便。
+        2. 变量：用来保存字面量，可任意改变。更方便使用。
+        *所以开发中常用变量而非字面量。
+        */
+
+        //声明变量
+        /*
+        使用var关键字来声明一个变量。且可以通过变量对字面量进行描述。
+        e.g.
+        */
+        //声明：
+        var a;
+        //为变量赋值：
+        a = 123;
+        console.log(a);
+
+        //声明&赋值可以同时进行：
+        var b = 789;
+        var age = 80;
+        console.log(b);
+        console.log(age);
+
+        //标识符（identifier）
+        /*
+        所有可以由我们自主命名的都可以称为标识符。
+        e.g. 
+        变量名，函数名，属性名都属于标识符。
+        */
+
+        //标识符 - 命名规则
+        /*
+        1. 标识符中可以且只可以含有字母、数字、_、$
+        2. 不能以数字开头
+        3. 不能是ES中的关键字或保留字符
+        e.g. var var = 123; -> ❌
+        4. 标识符一般采用驼峰命名法（非强制）
+            - 首字母小写，每个单词开头字母大写，其余字母小写。
+            e.g. helloWorld, xxxYyyZzz
+        5. JS底层保存标识符时，实际采用Unicode(utf-8)编码，所以理论上所有utf-8含有的内容都可以做标识符，但不要这么做。
+        */
+        //关键字
+        /*
+          break	do	instanceof	typeof	case
+          else	new	var	catch	finally
+          return	vold	continue	for	switch
+          while	default	if	throw	delete
+          in	try	function	this	with
+          debugger	false	true	null	
+        */
+
+        //保留字符
+        /*
+        class	enum	extends	super	const	export
+        import	implements	let	private	public	yield
+        interface	package	protected	static			
+        */
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

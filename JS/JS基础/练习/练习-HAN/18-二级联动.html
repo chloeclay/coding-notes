@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>18-二级联动</title>
+<style type="text/css">
+#class_title, #exercise_title{
+ text-align: center;
+}
+
+</style>
+</head>
+<body>
+    <h1 id = "class_title">二级联动练习</h1>
+    <form>
+        <h2 id="exercise_title">请选择您所在的城市</h2>
+            <select name="province" id="province">
+                <option value="choose_prov">请选择省份</option>
+            </select>
+            <select name="city" id="city">
+                <option value="choose_city">请选择城市</option>
+            </select>
+    </form>
+</body>
+<script>
+
+//--------------------------------默写-----------------------------
+var oProvince = document.getElementById("province");
+var oCity = document.getElementById("city");
+
+var oProv = new Array();
+oProv['河北'] = ['石家庄', '秦皇岛', '邯郸', '保定'];
+oProv['山西'] = ['太原', '大同', '晋中', '阳泉市'];
+oProv['辽宁'] = ['沈阳', '大连', '鞍山', '本溪'];
+
+function loadProv() {
+    for (const oProvs in oProv) {
+        oProvince.add(new Option(oProvs, oProvs));
+    }
+}
+loadProv();
+
+oProvince.onchange = function () {
+    oCity.length = 0;
+    if (oProvince.value != "choose_prov") {
+        for (const cities in oProv[oProvince.value]) {
+            oCity.add(new Option(oProv[oProvince.value][cities], oProv[oProvince.value][cities]));
+        }
+    } else {
+        oCity.length = 0;
+        oCity.add(new Option("请选择城市", 'choose_city'));
+    }
+}
+
+
+
+
+</script>
+</html> 
+

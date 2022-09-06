@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM增删改练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #newForm{
+            margin: 50px auto;
+            text-align: center;
+            line-height: 30px;
+            border: 1px solid silver;
+            width: 50%;
+        }
+        #formCont > table{
+            margin: 20px auto;
+            width: 50%;
+        }
+        h1, button{
+            margin: 20px;
+        }
+        td{
+            padding: 15px;
+        }
+        th{
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+    <script>
+        var delFunc = function () {
+            var oTr = this.parentNode.parentNode;
+            oTr.parentNode.removeChild(oTr);           
+            return false;
+        };
+        window.onload = function () {
+            // 删除按钮
+            var delBtn = document.getElementsByTagName("a");
+            for (let i = 0; i < delBtn.length; i++) {
+                delBtn[i].onclick = delFunc;
+            }
+            // 添加新人
+            var subBtn = document.getElementsByTagName("button")[0];
+            subBtn.onclick = function(){var inputs = document.getElementsByTagName("input");
+            var newName = inputs[0].value;
+            var newEmail = inputs[1].value;
+            var newSalary = inputs[2].value;
+            var newTr = document.createElement("tr");
+            newTr.innerHTML = "<td>"+newName+"</td>"+
+                              "<td>"+newEmail+"</td>"+
+                              "<td>"+newSalary+"</td>"+
+                              "<td><a href='javascript:;'>Delete</a></td>";
+            var formCont = document.getElementById("formCont");
+            var oTbody = formCont.getElementsByTagName("tbody")[0];
+            oTbody.appendChild(newTr);
+            // 删除按钮
+            var newDelBtn = newTr.getElementsByTagName("a")[0];
+            newDelBtn.onclick = delFunc;
+            return false;
+        };
+        };
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="newForm">
+            <h1>添加新员工</h1>
+            <form>
+                Name&nbsp;<input type="text"/><br />
+                Email&nbsp;<input type="email"/><br />
+                Salary&nbsp;<input type="number"/><br />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div id="formCont">
+            <table border="2">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Salary</th>
+                    <th>Delete</th>
+                </tr>
+                <tr>
+                    <td>Chloe</td>
+                    <td>hjwefoija@jjfks.com</td>
+                    <td>55266</td>
+                    <td><a href="javascript:;">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Oceane</td>
+                    <td>hawifdddq@ss.com</td>
+                    <td>12460</td>
+                    <td><a href="javascript:;">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Vanessa</td>
+                    <td>445622wd@126.com</td>
+                    <td>32053</td>
+                    <td><a href="javascript:;">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

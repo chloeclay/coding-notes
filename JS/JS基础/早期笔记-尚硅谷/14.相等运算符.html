@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+/**
+ *  相等运算符：用来比较两个值是否相等
+ *            相等 -> true
+ *            不等 -> false
+ * 
+ *  使用 == 做相等运算 
+ *         会自动做类型转换 大部分情况转为number
+ */
+
+   console.log(1 == 1); // true
+   
+   var a = 10;
+   console.log(a == 4); // false
+
+   console.log("1" == 1); // true
+
+   console.log(true == "1");  // true
+   console.log("true" == "1"); // false 因为非数字string转换成了NaN
+   console.log(null == 0); // false !!!特殊!!!
+
+/* 
+ undefined 衍生自 null
+ 所以这两个值做相等判断时会返回true 但全等判断时返回false
+*/
+  console.log(undefined == null); // true
+
+/* 
+ NaN 不和任何值相等，包括它本身
+*/
+ console.log(NaN == NaN); // false
+
+
+/* 
+ 判断一个值是否是NaN 可以利用 isNaN() 函数
+*/
+var b = NaN;
+console.log(isNaN(b)); // true
+
+/**
+ *  不相等运算符：用来比较两个值是否相等
+ *            相等 -> false
+ *            不等 -> true
+ * 
+ *  使用 != 做不相等运算 
+ * 
+ */
+
+ console.log(10 != 5); // true
+ console.log(10 != 10); // false
+ console.log("1" != 1); // false
+
+
+
+ /* 
+ === 全等：用来判断两个值是否全等，和相等类似，但不做类型转换 -> 类型不同就false
+
+ !== 不全等：用来判断两个值是否不全等，和不等类似，但不做类型转换 -> 类型不同就true
+ 
+ */
+  console.log("123" === 123); // false
+  console.log(null === undefined); // false
+  console.log(null == undefined); // true
+
+  console.log(1 !== "1"); // true
+
+    </script>
+</head>
+<body>
+</body>
+</html>

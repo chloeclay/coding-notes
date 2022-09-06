@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div随鼠标移动</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(155, 210, 211, 0.541);
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            document.onmousemove = function (event) {
+                var sTop = document.documentElement.scrollTop || document.body.scrollTop;
+                var sLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+                var halfW = parseInt(getComputedStyle(box).width)/2;
+                box.style.top = event.clientY - halfW + sTop + "px";
+                box.style.left = event.clientX  - halfW + sLeft + "px";
+            }
+        };
+
+    </script>
+</head>
+<body style="height: 2000px; width: 2000px">
+    <div id="box">
+    </div>
+</body>
+</html>

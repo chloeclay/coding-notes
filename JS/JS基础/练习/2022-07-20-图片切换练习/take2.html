@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片切换练习</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+#outer{
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    margin: 50px auto;
+}
+img{
+    width: 500px;
+    height: 350px;
+}
+button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgba(88, 88, 88, 0.88);
+}
+</style>
+<script type="text/javascript">
+window.onload = function () {
+    var imgArr = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg"];
+    var images = document.getElementById("img");
+    var btnPrev = document.getElementById("prev");
+    var btnNext = document.getElementById("next");
+    var defaultNum = document.getElementById("default");
+    var index = 0;
+    
+    btnPrev.onclick = function(){
+        index--;
+        if (index<0) {
+            index = 5;
+        }
+        images.src = imgArr[index];
+        defaultNum.innerHTML = (index+1) + "/" + imgArr.length;
+    }
+    btnNext.onclick = function () {
+        index++;
+        if (index>imgArr.length-1) {
+            index = 0;
+        }
+        images.src = imgArr[index];
+        defaultNum.innerHTML = (index+1) + "/" + imgArr.length;
+    }
+}
+</script>
+</head>
+<body>
+    <div id="outer">
+        <div id="top">
+            <h1 class="title">JS实现图片切换</h1>
+        </div>
+        <img src="images/1.jpg" alt="" id="img">
+        <div id="bottom">
+            <button id="prev">&nbsp;<&nbsp;</button>
+            <span id="default">1/6</span>
+            <button id="next">&nbsp;>&nbsp;</button>
+        </div>
+    </div>
+</body>
+</html>

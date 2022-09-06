@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图练习</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        h1{
+            font-size: 40px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            color: rgba(95, 134, 27, 0.781);
+        }
+        .box{
+            width: 500px;
+            height: 750px;
+            position: absolute;
+            top: 50px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        img{
+            width: 500px;
+            height: 750px;
+        }
+        .btn, .points{
+            position: absolute;
+        }
+        .btn{
+            width: 20px;
+            height: 30px;
+            background: beige;
+            color: cadetblue;
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            top: 50%;
+            margin-top: -15px;
+            cursor: pointer;
+        }
+        .btn_l{
+            left: 0;
+        }
+        .btn_r{
+            right: 0;
+        }
+        .points{
+            width: 150px;
+            height: 20px;
+            border-radius: 10px;
+            background: cornsilk;
+            left: 50%;
+            margin-left: -75px;
+            bottom: 30px;
+            z-index: 999;
+        }
+        .points li{
+            cursor: pointer;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(78, 163, 78, 0.493);
+            float: left;
+            margin: 5px 10px;
+        }
+        .points li.cur{
+            background: rgba(51, 109, 51, 0.781);
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemple de Carousel</h1>
+    <div class="box">
+        <img src="images/0.jpg" alt="">
+        <!-- <img src="images/2.jpg" alt="">
+        <img src="images/3.jpeg" alt="">
+        <img src="images/4.jpeg" alt="">
+        <img src="images/5.jpeg" alt=""> -->
+        <div class="btn btn_l">&lt;</div>
+        <div class="btn btn_r">&gt;</div>
+        <ul class="points">
+            <li class="cur"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // 1. 点击points切换图片
+    // 2. 点击按钮切换图片
+    // 3. 切换：改变图片src
+    // 4. points和按钮切换同一变量
+
+    // 1. 获取元素
+    var oImg = document.getElementsByTagName("img")[0];
+    var oBtn_l = document.getElementsByClassName("btn_l")[0];
+    var oBtn_r = document.getElementsByClassName("btn_r")[0];
+    var oLi = document.getElementsByTagName("li");
+
+    // 2. 声明全局变量
+    var index = 0;
+
+    // cur pointer颜色函数
+    function curPointer() {
+        for (var i = 0; i < oLi.length; i++) {
+            oLi[i].className = "";
+        }
+        oLi[index].className = "cur";
+    }
+
+    // 3. 点击<按钮 index -- 0为临界点
+    oBtn_l.onclick = function(){
+        // if(index==0){
+        //     index = 4;
+        // }else{
+        //     index --;
+        // }
+
+        index == 0? index = 4 : index --;
+        oImg.src = "images/" + index + ".jpg";
+        curPointer();
+    }
+
+    // 4. 点击>按钮 index ++ 4为临界点
+    oBtn_r.onclick = function(){
+        // if(index==4){
+        //     index = 0;
+        // }else{
+        //     index ++;
+        // }
+
+        index == 4? index = 0 : index ++;
+        oImg.src = "images/" + index + ".jpg";
+        curPointer();
+
+    }
+    // 5. pointers
+        // oLi[0].onclick = function() {
+        //     index = 0;
+        //     oImg.src = "images/" + index + ".jpg";
+        //     curPointer();
+        // }
+        // oLi[1].onclick = function() {
+        //     index = 1;
+        //     oImg.src = "images/" + index + ".jpg";
+        //     curPointer();
+        // }
+        // oLi[2].onclick = function() {
+        //     index = 2;
+        //     oImg.src = "images/" + index + ".jpg";
+        //     curPointer();
+        // }
+        // oLi[3].onclick = function() {
+        //     index = 3;
+        //     oImg.src = "images/" + index + ".jpg";
+        //     curPointer();
+        // }
+        // oLi[4].onclick = function() {
+        //     index = 4;
+        //     oImg.src = "images/" + index + ".jpg";
+        //     curPointer();
+        // }
+
+        // 改用for循环
+        for (var m = 0; m < oLi.length; m++) {
+            oLi[m].a = m;  // 给li添加自定义a属性，用于储存值m
+            oLi[m].onclick = function () {
+                index = this.a;
+                oImg.src = "images/" + this.a + ".jpg";
+                curPointer();
+            }
+        }
+</script>
+</html>

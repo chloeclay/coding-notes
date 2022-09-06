@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS学习 test01</title>
+    <style>
+        button{
+            border-radius: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <p id="demo">
+     这段话不会被显示。
+    </p>
+    <button onclick="myFirstFunction()">Temps Actuel</button>
+    <script>
+        // // window.alert(5 + 6);
+        // console.log(5 + 6);
+        // var a=1, b=2, c=3;
+        // console.log(a + b + c);
+        // var a, b, c;
+        // a = 1314;
+        // b = 520;
+        // c = a + b;
+        // console.log(c);
+        
+        // innerHTML
+    document.getElementById("demo").innerHTML = "Chloe est une très belle fille!";
+    function myFirstFunction(){
+        document.write(Date());
+    }
+    
+    var a, b, c;
+    a = 45;
+    b = 9;
+    c = a/b;
+    console.log(c);
+
+    </script>
+</body>
+</html>

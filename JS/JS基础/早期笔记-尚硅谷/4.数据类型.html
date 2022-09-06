@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //数据类型：字面量的类型
+           //共6种数据类型：
+             /* 
+             string：字符串
+             number：数字
+             boolean：布尔值
+             null：空值
+             undefined：未定义
+             object：对象
+             */
+           //其中前五种属于基本数据类型，object属于引用数据类型。
+
+               //1. 字符串string
+                  /*
+                  - 在js中使用字符串需要用“”引起来。
+                  - 引号不能嵌套：双引号中不能放双引号，单引号中不能放单引号，但可以外双内单。
+                  e.g.
+                  */
+                 var str = "She said, 'You're beautiful!'";
+                 //在字符串中，用\作为转义字符
+                 //e.g.
+                 var str = "She said, \"You're beautiful!\"";
+
+                 /*
+                 \" = "
+                 \' = '
+                 \n = 换行
+                 \t = 制表符
+                 \\ = \
+                 \\\\ = \\
+                 */
+
+                 /*
+                 对同一个变量来说，var声明一次就够，之后的是对值进行改变，越靠下越优先。
+                 e.g.
+                 */
+                var str = "hello";
+                    str = "bonjour";
+                    str = 233333;
+                console.log(str);
+
+               //2. 数值number
+                  /**
+                   * JS中所有数值都是nubmer类型，包括整数和浮点数（小数）
+                   * 只有有效数字可以显示
+                   * 不用加引号
+                   * 可以使用运算符typeof来检查变量的类型
+                   * 
+                   * e.g.
+                   */
+                console.log(typeof str); //-> number
+
+                /*
+                数字最大值：Number.MAX_VALUE
+                数字最小正值：Number.MIN_VALUE
+                */
+
+                /*
+                Infinity和 -infinity 为number数值，不用加引号
+                */
+
+                /*
+                NaN：Not a number -> 特殊数值：非法数字；但type依旧属于number。
+
+                e.g. 如果使用number表示的数超过了最大值，返回为infinity
+                */
+               a = - Number.MAX_VALUE * Number.MAX_VALUE;
+               a = Infinity;
+               console.log(typeof a);  //number
+
+               /*
+               js中整数运算基本可以保证精确，但浮点数计算可能得不到精确结果。所以不用js进行精确计算。
+               */
+
+               //3. 布尔值boolean
+                  /**
+                   * 只有两个值：true/false -> 用于做逻辑判断
+                   * 不加引号
+                   * 
+                   * e.g.
+                   */
+                   var bool = true;
+                   console.log(typeof bool); //boolean
+
+               //4. 空值null
+                  /**
+                   * 只有一个值：null
+                   * 专门用来表示一个为空的对象
+                   * 
+                   * e.g.
+                   */
+                  var a = null;
+                  console.log(typeof a); //object
+
+               //5. 未定义undefined
+                  /**
+                   * 只有一个值：undefined
+                   * 当声明一个变量，而不给它赋值时，它的值就是undefined
+                   * 
+                   * e.g.
+                   */
+                  var a;
+                  console.log(typeof a); //undefined
+
+         
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

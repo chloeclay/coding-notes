@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background: #333;
+            position: absolute;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            background:silver;
+        }
+    </style>
+    <script>
+        /* 拖拽流程：
+                1. 当鼠标在被拖拽元素上按下时，开始拖拽 -> onmousedown
+                2. 当鼠标移动时被拖拽元素跟随鼠标移动 -> onmousemove
+                3. 当鼠标松开时，被拖拽元素固定在当前位置 -> onmouseup
+        */
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            drag(box1);
+            drag(box2);
+            
+
+            // 提取函数：传参obj代替box
+            function drag(box) {
+                box.onmousedown = function (event) {
+                    // 鼠标的clientTop - 元素的offsetLeft = 偏移量
+                    var halfTop = event.clientY - box.offsetTop;
+                    var halfLeft = event.clientX - box.offsetLeft;
+                document.onmousemove = function (event) {
+                    var left = event.clientX - halfLeft;
+                    var top = event.clientY - halfTop;
+                    box.style.top = top +"px";
+                    box.style.left = left +"px";
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                }
+                // 拖拽页面内容时会默认到搜索引擎中搜索，导致拖拽功能异常
+                // 取消默认行为：
+                return false;
+            };
+            }
+
+        };
+
+    </script>
+</head>
+<body>
+    <div id="box2">
+    </div>
+    <div id="box1"></div>
+</body>
+</html>

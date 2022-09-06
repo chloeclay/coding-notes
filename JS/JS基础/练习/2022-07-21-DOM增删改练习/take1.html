@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM增删改练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 500px;
+            text-align: center;
+            margin: 50px auto;
+        }
+        #formCont{
+            width: auto;
+            margin: 10px auto;
+        }
+        #formNew{
+            border: 1px solid #333;
+            width: 80%;
+            margin: 10px auto;
+        }
+        #formNew table{
+            margin: 10px auto;
+            text-align: left;
+        }
+        .delete{
+            margin: 10px;
+        }
+        #formCont tr th{
+            padding: 10px;
+        }
+        #formCont tr td{
+            padding: 0 5px;
+        }
+
+    </style>
+    <script>
+        // 方法1：
+                // // 删除按钮函数
+                // function oBtnDel() {
+                //             var tr = this.parentNode.parentNode;
+                //             // var name = tr.getElementsByTagName("td")[0].innerHTML;
+                //             var name = tr.children[0].innerHTML;
+                //             if(confirm("确认删除"+name+"吗？")){
+                //                 tr.parentNode.removeChild(tr);
+                //             }
+                //         }
+                // window.onload = function oDelete() {
+                //     var btnDel = document.querySelectorAll(".delete");
+                //     // 删除按钮
+                //     for (let i = 0; i < btnDel.length; i++) {
+                //         btnDel[i].onclick = oBtnDel;
+                //     }
+                //     // 添加按钮
+                //     var btnEmp = document.getElementById("addEmpBtn");
+                //     btnEmp.onclick = function () {
+                //         var newName = document.getElementById("empName").value;
+                //         var newEmail = document.getElementById("email").value;
+                //         var newSalary = document.getElementById("salary").value;
+                        
+                //         // 添加新tr
+                //             // 添加元素
+                //             var oForm = document.getElementById("formCont");
+                //             var oTr = document.createElement("tr");
+                //             var oTdN = document.createElement("td");
+                //             var oTdE = document.createElement("td");
+                //             var oTdS = document.createElement("td");
+                //             var oTdD = document.createElement("td");
+                //             var oBtn = document.createElement("button");
+                //             // 给btn添加class
+                //             oBtn.setAttribute("class","delete");
+                //             // 写内容
+                //             var oNtext = document.createTextNode(newName);
+                //             var oEtext = document.createTextNode(newEmail);
+                //             var oStext = document.createTextNode(newSalary);
+                //             var oBtext = document.createTextNode("Delete");
+                //             // 把内容加进元素里
+                //             oTdN.appendChild(oNtext);
+                //             oTdE.appendChild(oEtext);
+                //             oTdS.appendChild(oStext);
+                //             oBtn.appendChild(oBtext);
+                //             oTdD.appendChild(oBtn);
+                //             oTr.appendChild(oTdN);
+                //             oTr.appendChild(oTdE);
+                //             oTr.appendChild(oTdS);
+                //             oTr.appendChild(oTdD);
+                //             var oTable = oForm.getElementsByTagName("tbody")[0];
+                //             oTable.appendChild(oTr);
+                //             // 为新del按钮添加函数
+                //             oBtn.onclick = oBtnDel;
+                //     }
+                // };
+        // 方法2：创建tr然后直接添加innerHTML
+        var funcDel = function () {
+            var delTr = this.parentNode.parentNode;
+            delTr.parentNode.removeChild(delTr);
+        }
+        window.onload = function () {
+            // 删除按钮
+            var delBtn = document.querySelectorAll(".delete");
+            for (let i = 0; i < delBtn.length; i++) {
+                delBtn[i].onclick = funcDel;
+            }
+            // 添加信息
+            var oSub = document.getElementById("addEmpBtn");
+            oSub.onclick = function () {
+                var oName = document.getElementById("empName").value;
+                var oEmail = document.getElementById("email").value;
+                var oSalary = document.getElementById("salary").value;
+                var newTr = document.createElement("tr");
+                newTr.innerHTML = "<td>"+oName+"</td>"+
+                                "<td>"+oEmail+"</td>"+
+                                "<td>"+oSalary+"</td>"+
+                                "<td><button class='delete'>Delete</button></td>";                
+                
+                var oTable =  document.getElementById("formCont");
+                var oTbody = oTable.getElementsByTagName("tbody")[0];
+                oTbody.appendChild(newTr);
+            // 删除按钮
+                // var newDelBtn = document.querySelectorAll(".delete");
+                // newDelBtn[newDelBtn.length - 1].onclick = funcDel;
+                
+                var newDelBtn = newTr.getElementsByTagName("button")[0];
+                newDelBtn.onclick = funcDel;
+            }
+
+        };
+                
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <table border="1" id="formCont">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&nbsp;&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Chloe</td>
+            <td>123@abc.com</td>
+            <td>150000</td>
+            <td><button class="delete">Delete</button></td>
+        </tr>
+        <tr>
+            <td>Oceanne</td>
+            <td>456@asb.com</td>
+            <td>12000</td>
+            <td><button class="delete">Delete</button></td>
+        </tr>
+        <tr>
+            <td>Vanessa</td>
+            <td>789@gam.com.cn</td>
+            <td>16025</td>
+            <td><button class="delete">Delete</button></td>
+        </tr>
+    </table>
+    <div id="formNew">
+        <table>
+            <h2>
+                添加新员工
+            </h2>
+            <tr>
+                <td class="word">Name</td>
+                <td class="inp">
+                    <input type="text" name="empName" id="empName">
+                </td>
+            </tr>
+            <tr>
+                <td class="word">Email</td>
+                <td class="inp">
+                    <input type="text" name="email" id="email">
+                </td>
+            </tr>
+            <tr>
+                <td class="word">Salary</td>
+                <td class="inp">
+                    <input type="text" name="salary" id="salary">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpBtn" value="">
+                        Submit
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+</body>
+</html>

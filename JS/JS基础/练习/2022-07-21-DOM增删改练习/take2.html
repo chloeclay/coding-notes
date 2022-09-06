@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM增删改练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer, #formCont > table{
+            margin: 50px auto;
+        }
+        td, th{
+            padding: 8px;
+        }
+        form{
+            margin: 20px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        input{
+            margin: 5px;
+            padding: 3px;
+        }
+    </style>
+    <script>
+        function delFunc() {
+                    var delTr = this.parentNode.parentNode;
+                    if (confirm("确定要删除吗？")) {
+                        delTr.parentNode.removeChild(delTr);
+                    }
+                    return false;
+                };
+        window.onload = function() {
+            // 删除按钮
+            var btnDel = document.querySelectorAll("a");
+            for (let i = 0; i < btnDel.length; i++) {
+                btnDel[i].onclick = delFunc;
+            }
+            
+            // 添加新人
+            var btnAdd = document.getElementById("btnAdd");
+            btnAdd.onclick = function () {
+                var addName = document.getElementById("addName").value;
+                var addEmail = document.getElementById("addEmail").value;
+                var addSalary= document.getElementById("addSalary").value;
+                var newTr = document.createElement("tr");
+                newTr.innerHTML = "<td>"+addName+"</td>"+
+                                    "<td>"+addEmail+"</td>"+
+                                    "<td>"+addSalary+"</td>"+
+                                    "<td><a href='javascript:;'>Delete</td>";
+                var oTable = document.getElementById("formCont");
+                var oTbody = oTable.getElementsByTagName("tbody")[0];
+                oTbody.appendChild(newTr);
+                 // 新人删除
+                var newBtnDel = newTr.getElementsByTagName("a")[0];
+                newBtnDel.onclick = delFunc;
+                return false;
+            }
+
+            // style练习
+            var formNew = document.getElementById("addNew");
+            formNew.style.width = "60%";
+            formNew.style.margin = "100px auto";
+        };
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="addNew">
+            <form>
+                <h2>添加新员工</h2>
+                Name<input type="text" id="addName"><br />
+                Email<input type="email" id="addEmail"><br />
+                Salary<input type="number" id="addSalary"><br />
+                <button id="btnAdd">Submit</button>
+            </form>
+        </div>
+
+        <div id="formCont">
+            <table border = "2">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Salary</th>
+                    <th>Delete</th>
+                </tr>
+                <tr>
+                    <td>Chloe</td>
+                    <td>jkjsefoiwe@jkkw.com</td>
+                    <td>153355</td>
+                    <td><a href="">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Oceanne</td>
+                    <td>ookkdiwpm@jw.com.cn</td>
+                    <td>55412</td>
+                    <td><a href="">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Vanessa</td>
+                    <td>iiwpdkljj@gammil.com</td>
+                    <td>12300</td>
+                    <td><a href="">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

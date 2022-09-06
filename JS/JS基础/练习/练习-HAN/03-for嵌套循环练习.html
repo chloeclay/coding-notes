@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>for嵌套循环练习</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 70px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+    // 练习1 用程序在页面中作图：正三角
+        // 几行
+        for (var i = 0; i < 10; i++){
+            // 多宽
+            for (var m = 0; m < i + 1; m++) {
+                    document.write("*&nbsp;&nbsp;");
+            }
+            document.write("<br />");
+        }
+    // 练习2 用程序在页面中作图：倒三角
+        // 方法1：
+            for (var a = 0; a < 10; a++){
+                for (var b = 10; b > a; b--) {
+                    document.write("*&nbsp;&nbsp;");
+                }
+                document.write("<br />");
+            }
+
+        // 方法2
+            for(var c = 0; c < 10; c++){
+                for (var d = 0; d < 10 - c; d++) {
+                    document.write("*&nbsp;&nbsp;");
+                }
+                document.write("<br />");
+            }
+
+    // 练习3 打印99乘法表
+        document.write("<br />99乘法表<br /><br />");
+            for (var oCross = 1; oCross < 10; oCross++) {
+                for (let oCrossNum = 1; oCrossNum < oCross + 1; oCrossNum++) {
+                    document.write("<span>" + oCross + "*" + oCrossNum + "=" + oCrossNum * oCross + "</span>");
+                }
+                document.write("<br />");
+            }
+            
+    // 练习4 打印1-200内所有质数
+        document.write("<br />1-200内的所有质数为：<br />");
+        for (var primeNum = 2; primeNum <= 200; primeNum++) {
+                var oFlag = true;   
+                for (var primeCounter = 2; primeCounter < primeNum; primeCounter++) {
+                    if (primeNum % primeCounter == 0) {
+                    oFlag = false;
+                }
+                }
+                if (oFlag) {
+                        console.log(primeCounter);
+                }
+            }
+
+</script>
+</html>

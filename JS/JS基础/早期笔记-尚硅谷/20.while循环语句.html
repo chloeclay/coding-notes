@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+/* 
+  循环语句：多次反复执行同一段代码
+  E.G. 向页面中输出连续的数字
+ */
+//  var n = 1;
+//  document.write(n++ +"<br/>");
+//  document.write(n++ +"<br/>");
+//  document.write(n++ +"<br/>");
+//  document.write(n++ +"<br/>");
+
+//  while 循环
+    /* 
+       语法：
+         while(条件表达式){
+           语句...
+         }
+
+       执行：
+         先对条件表达式(括号里的东西)进行判断，true -> 执行循环体 -> 判断 -> 执行循环体
+                             false -> 终止循环体
+    */
+
+
+    /*  while(true){
+       语句...
+    }
+
+
+    //  ***死循环，只有关闭浏览器才能停止
+        ***慎用
+        ***可以使用break终止循环
+    var n = 1;
+    while(true){
+       alert(n++);
+    }
+    */
+   var n = 1;
+   while(true){
+       alert(n++);
+       if(n == 2){
+       break;             // 到2就停了
+       }
+   }
+
+
+  //  创建一个while()循环的3个步骤
+     //  1. 初始化一个变量
+         var i = 0;
+        
+     //  2. 在循环中设置一个条件表达式
+         while(i < 5){
+     //  3. 定义一个新的表达式，每次更新初始化变量
+         document.write(i++ +"<br/>");
+         }
+
+  // do...while()循环
+     /* 
+        语法：
+          do{
+            语句...
+          }while(条件表达式);
+        
+        执行：
+          先执行循环体，完毕后再对条件表达式进行判断
+     */
+
+
+    //  练习1：
+    // 假如投资的年利率为5%，试求从1000块增长到5000块需要花费多少年
+ 
+    var money = 1000;
+    //  定义计数器
+    var count = 0;
+
+    while(money < 5000){
+        money *= 1.05;
+        count++;
+        if(money >= 5000){
+          console.log("一共需要"+count+"年能增长到5000元");
+          break;
+        }
+    }
+
+    //  练习2:
+    //  输入成绩，提示合格/不合格
+    while(true){
+      var score = prompt("请输入你的成绩");
+      if(score > 0 && score <= 100){
+       break;
+      }
+      alert("输入的数值无效哦");
+    }
+    if(score >= 60){
+         alert("合格");
+    }else{
+         alert("不合格");
+    }
+
+    </script>
+</head>
+<body>
+</body>
+</html>

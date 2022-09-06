@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>质数练习</title>
+</head>
+<body>
+</body>
+<script>
+    // 练习1 请找出1-100内的所有质数
+
+    // 测试性能：计时器
+    console.time("test");
+    document.write("1-100内的所有质数为：<br />");
+    for (var oNum = 2; oNum <= 10000; oNum++) {
+        var oFlag = true;
+        for (var oPrime = 2; oPrime < oNum; oPrime++) {
+            if (oNum % oPrime == 0) {
+                oFlag = false;
+                break;
+            }
+        }
+        if (oFlag) {
+            document.write(oNum + "<br />");
+        }
+    }
+    console.timeEnd("test");
+
+    console.time("test 2");
+    document.write("1-100内的所有质数为：<br />");
+    for (var oNum = 2; oNum <= 100; oNum++) {
+        var oFlag = true;
+        for (var oPrime = 2; oPrime < oNum; oPrime++) {
+            if (oNum % oPrime == 0) {
+                oFlag = false;
+                // break;
+            }
+        }
+        if (oFlag) {
+            document.write(oNum + "<br />");
+        }
+    }
+    console.timeEnd("test 2");
+    
+</script>
+</html>

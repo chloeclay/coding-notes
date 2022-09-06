@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+/* 
+
+ 条件分支语句（switch语句）
+ 从上到下依次对switch条件表达式的值和case表达式的值进行全等比较
+ 结果为true -> 从当前case处开始执行代码之后的所有代码
+      false -> 继续向下比较
+ ***加break截止代码
+ 语法：
+    switch(条件表达式){
+      case 表达式: 
+      语句...
+      break;
+
+      case 表达式: 
+      语句...
+      break;
+
+      case 表达式: 
+      语句...
+      break;
+
+      defaut:
+      语句...
+      break;
+    }
+ */
+
+/* var num = 1;
+ switch(num){
+   case 1:
+     console.log("ONE");
+     break;
+   case 2:
+     console.log("TWO");
+     break
+   case 3:
+     console.log("THREE");
+     break;
+   default:
+     console.log("非法数字");
+     break;
+ } */
+
+//  练习1
+/* 
+  对于成绩大于60分的，输出‘合格’
+  低于60分的，输出‘不合格’
+ */
+
+ var score = prompt("请输入你的成绩");
+ switch(score >= 60){
+   case true:
+    console.log("合格");
+    break;
+   default:
+    console.log("不合格");
+    break;
+ }
+
+//  或用parseInt()函数取整
+/* switch(parseInt(score/10)){
+  case 10:
+  case 9:
+  case 8:
+  case 7:
+  case 6:
+   console.log("合格");
+   break;
+  default:
+    console.log("不合格");
+    break;
+} */
+    </script>
+</head>
+<body>
+</body>
+</html>

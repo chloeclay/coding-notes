@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-加油的总价计算</title>
+</head>
+<body>
+    <h1>加油的总价计算</h1>
+    <input type="text" id="type" placeholder="请输入加油的型号"><br>
+    <input type="text" id="amount" placeholder="请输入加油的数量"><br>
+    <input type="text" id="total" placeholder="总价"><br>
+    <button id="btn">结算</button>
+</body>
+<script>
+/* 加油站鼓励车主多加油，加的多有优惠：
+    92号汽油，每升6元；若加大于等于20升油，则每升5.9元；
+    97号汽油，每升7元；若加大于等于30升油，则每升6.95元；
+编写程序，使当用户输入加油型号和加多少升时，弹出价格。 */
+
+// 1. 获取元素
+    oType = document.getElementById("type");
+    oAmount = document.getElementById("amount");
+    oTotal = document.getElementById("total");
+    oBtn = document.getElementById("btn");
+
+// 2. 点击按钮时进行判断
+    oBtn.onclick = function () {
+        if (oType.value == 92) {
+            if (oAmount.value < 20) {
+                oTotal.value = 6 * oAmount.value;
+            }else{
+                oTotal.value = 5.9 * oAmount.value;
+            }
+        }else if (oType.value == 97) {
+            if (oAmount.value < 30) {
+                oTotal.value = 7 * oAmount.value;
+            }else{
+                oTotal.value = 6.95 * oAmount.value;
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    /* 
+    逻辑运算符：
+
+
+    ！ 非
+           - ！进行取反操作，false => true, true => false
+           - 两次取反不会变化
+           - 对非布尔值进行取反，会先转为Boolean后再取反
+             所以可以！！进行两次取反，转换为Boolean，原理= Boolean()函数
+
+    && 与 （找false）
+           - && 对符号两侧的值进行运算并返回结果
+           - 运算规则： 只要有1个值为false就返回false，其余为true
+           - JS中的&&为短路的与，只要第一个值为false就不会看第二个值
+
+    || 或 （找true）
+           - || 对符号两侧的值进行运算并返回结果
+           - 运算规则： 只要有1个值为true就返回true，其余为false
+           - JS中的||为短路的或，只要第一个值为true就不会看第二个值
+
+
+    */
+
+    //！非运算EG
+    var a = true;
+    a = !a;
+    console.log("a = "+a); // a = false
+
+    var a = true;
+    a = !!a;
+    console.log("a = "+a); // a = true
+
+    //！！转换为布尔值EG
+    var a = 10;
+    a = !!a;
+    console.log("a = "+a); // a = true
+    console.log(typeof a); // boolean
+
+    var a = 0;
+    a = !!a;
+    console.log("a = "+a); // a = false
+    console.log(typeof a); // boolean
+
+    var a = NaN;
+    a = !!a;
+    console.log("a = "+a); // a = false
+    console.log(typeof a); // boolean
+
+
+    //&& 与运算EG
+    //两端都是true 返回true
+    var result = true && true;
+    console.log("result = "+result); // result = true
+    //只要有1个false 就返回false
+    var result = true && false;
+    console.log("result = "+result); // result = false
+
+    //JS中的&&为短路的与，只要第一个值为false就不会检查第二个值 EG
+    true && alert("Guess if I'll show up"); //=> 执行
+    false && alert("Ok this time I won't show up anymore"); //=> 不执行
+
+    //|| 或运算EG
+    result = true || false; // result = true;
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

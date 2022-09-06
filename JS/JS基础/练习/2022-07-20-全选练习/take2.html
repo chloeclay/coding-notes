@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选练习</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        #form{
+            line-height: 30px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var sAll = document.getElementById("sall");
+            var sNone = document.getElementById("snone");
+            var sRev = document.getElementById("srev");
+            var sSub = document.getElementById("ssub");
+            var sDefault = document.getElementById("defaultSelect");
+            var sports = document.getElementsByName("sport");
+
+            sAll.onclick = function () {
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].checked = true;
+                }
+                sDefault.checked = true;
+            }
+
+            sNone.onclick = function () {
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].checked = false;
+                }
+                sDefault.checked = false;
+            }
+
+            sRev.onclick = function () {
+                var oNum = 0;
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].checked = !sports[i].checked;
+                    if (sports[i].checked) {
+                        oNum++;
+                    }
+                }
+                if (oNum == sports.length) {
+                    sDefault.checked = true;
+                }else{
+                    sDefault.checked = false;
+                }
+            }
+
+            sSub.onclick= function () {
+                var sSubCont = "";
+                    for (let i = 0; i < sports.length; i++) {
+                        if (sports[i].checked) {
+                            sSubCont += sports[i].nextSibling.nodeValue;
+                        }
+                    }
+                   alert("你爱好的运动有：" + sSubCont);
+            }
+
+            sDefault.onclick = function () {
+                for (let i = 0; i < sports.length; i++) {
+                            sports[i].checked = this.checked;
+                        }
+                }
+            
+            for (let i = 0; i < sports.length; i++) {
+                sports[i].onclick = function () {
+                    sDefault.checked = true;
+                    for (let j = 0; j < sports.length; j++) {
+                        if (!sports[j].checked) {
+                            sDefault.checked = false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div id="title">
+            <h1>你爱好的运动</h1>
+        </div>
+        <div id="form">
+            <form action="">
+                <input type="checkbox" name="sport">足球
+                <input type="checkbox" name="sport">篮球
+                <input type="checkbox" name="sport">羽毛球
+                <input type="checkbox" name="sport">乒乓球
+                <br/>
+                <input type="button" value="全选" id="sall">
+                <input type="button" value="全不选" id="snone">
+                <input type="button" value="反选" id="srev">
+                <input type="button" value="提交" id="ssub">
+                <br/>
+                <input type="checkbox" id="defaultSelect">全选/全不选
+            </form>
+        </div>
+    </div>
+</body>
+</html>

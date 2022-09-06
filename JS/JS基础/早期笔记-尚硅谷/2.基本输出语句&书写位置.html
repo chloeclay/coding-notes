@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //基本输出语句
+        /*
+        JS代码需要写到script标签中
+        e.g. <script type="text/javascript">
+        */
+
+        /*
+        控制浏览器弹出警告框：
+        alert("this is my first JS code");
+        */
+
+        /*
+        让计算机在页面中输出一个内容：
+        （向body中输出一个内容，不会出现在页面的html结构中）
+        document.write("hello");
+        */
+
+        /*
+        向控制台输入一个内容：
+        console.log("world");
+        */
+
+        //代码从上向下读取
+
+        //书写位置
+        /*
+        1. button标签的onclick属性中
+        e.g.
+        <button onclick="alert('点我点我点我')；"> click </button>
+        */
+
+        /*
+        2. a标签的href属性中
+        e.g.
+        <a href="javascript:alert('点我点我点我')；"> link </a>
+        <a href="javascript:；"> link </a>  -> 可以让超链接点击无效
+        */
+
+        //前两种方法虽然可以写在属性标签中，但属于结构与行为耦合，不方便维护
+
+        /*
+        3. 外部文件中（可利用浏览器的缓存机制，在不同页面中同时使用）
+        e.g.
+        <script type="text/javascript" scr="js/script.js"> </scriipt>
+        */
+        //script标签一旦用于引入外部文件了就不能再编写js代码了 -> 可以再引入一个script标签
+
+        
+    </script>
+</head>
+<body>
+</body>
+</html>

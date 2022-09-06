@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+/* 
+自增: ++
+    使变量在自身的基础上增加1
+    对一个变量自增以后，原变量的值会立即自增1
+    自增分成两种：后++和前++，a++的值=a自增前的值/++a的值=自增后的值
+ */
+
+ /* 
+ 自减：--
+    使变量在自身的基础上减少1
+    自减分成两种：后--和前--，a--的值=a自减前的值/--a的值=自减后的值
+ */
+/* 
+
+
+自增EG
+
+
+*/
+var a = 1;
+a = a + 1;
+console.log("a = "+a);
+//结果相同
+var a = 1;
+a++;
+console.log("a++后 a = "+a);
+
+
+var c = 10;
+//使c第一次自增1
+c++;
+//第二次自增1
+console.log(c++);
+//所以输出结果为11
+
+var d = 20;
+++d; //21
+console.log(++d);//22
+
+var d = 20;
+// 20 + 22 + 22
+var result = d++ + ++d + d;
+console.log("result = "+result); // result = 64
+// d++ 使d自增一次，但d++的值为原值。此时d为21。
+// ++d 使d第二次自增，但++d为22。
+//d此时为22。
+
+/* 
+脑筋急转弯;) */
+var d = 20;
+d = d++; 
+/* 
+e = d++;
+d = e;
+ */
+console.log("d = "+d);  // d = 20;
+
+ /* 
+
+
+ 自减EG
+
+
+ */
+var num = 10;
+num--;
+console.log("num = "+num); // 9
+
+/* 
+
+课后练习题
+
+*/
+var n1 = 10 , n2 = 20;
+var n = n1++;
+console.log("n = "+n); // 10
+console.log("n1 = "+n1); // 11
+
+n = ++n1;
+console.log("n = "+n); // 11 xxxxx 在前一步的基础上增加！！ => 12
+console.log("n1 ="+n1); // 12
+
+n = n2--;
+console.log("n = "+n); // 20
+console.log("n2 = "+n2); // 19
+
+n = --n2;
+console.log("n = "+n); // 18
+console.log("n2 = "+n2); //18
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

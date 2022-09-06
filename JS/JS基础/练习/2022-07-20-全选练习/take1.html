@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选练习</title>
+    <script>
+        window.onload = function () {
+            var btnSelectAll = document.getElementById("selectAll");
+            var btnSelectNone = document.getElementById("selectNone");
+            var btnSelectRev = document.getElementById("selectRev");
+            var btnSelectSubmit = document.getElementById("selectSubmit");
+            var sports = document.getElementsByName("sport");
+
+            btnSelectAll.onclick = function () {
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].checked = true;
+                }
+                checkAll.checked = true;
+            }
+            btnSelectNone.onclick = function () {
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].checked = false;
+                }
+                checkAll.checked = false;
+            }
+            btnSelectRev.onclick = function () {
+                checkAll.checked = true;
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].checked = !sports[i].checked;
+                    if (!sports[i].checked) {
+                        checkAll.checked = false;
+                    }
+                }
+            }
+            btnSelectSubmit.onclick = function () {
+                var sportsOutput = "";
+                for (let i = 0; i < sports.length; i++) {
+                    if (sports[i].checked == true) {
+                        sportsOutput += sports[i].nextSibling.nodeValue;
+                    }
+                }
+                alert(sportsOutput);
+            }
+            // 全选全不选checkbox
+            var checkAll = document.getElementById("checkAll");
+            checkAll.onclick = function () {
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].checked = this.checked;
+                }
+            }
+
+            
+                for (let i = 0; i < sports.length; i++) {
+                    sports[i].onclick = function () {
+                        checkAll.checked = true;
+                        for (let j = 0; j < sports.length; j++) {
+                            if (!sports[j].checked) {
+                                checkAll.checked = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        
+
+        
+    </script>
+</head>
+<body>
+    <form action="" method="post">
+        你爱好的运动是：
+        <br/>
+        <input type="checkbox" name="sport" value="Football">足球
+        <input type="checkbox" name="sport" value="Basketball">篮球
+        <input type="checkbox" name="sport" value="Badminton">羽毛球
+        <input type="checkbox" name="sport" value="Table Tennis">乒乓球
+        <br/>
+        <input type="button" value="全选" id="selectAll">
+        <input type="button" value="全不选" id="selectNone">
+        <input type="button" value="反选" id="selectRev">
+        <input type="button" value="提交" id="selectSubmit">
+        <input type="checkbox"  value="全选/全不选" id="checkAll">全选/全不选
+    </form>
+</body>
+</html>

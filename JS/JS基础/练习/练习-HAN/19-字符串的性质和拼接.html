@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>19-字符串的性质和拼接</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+    <p id="property"></p>
+    <p id="split"></p>
+</body>
+<script>
+// 1. prototype 原型对象练习
+function Personne(name, age, gender) {
+    this.Name = name;
+    this.Age = age;
+    this.Gender = gender;
+}
+
+Personne.prototype.hobby = "DORMIR";
+var myFriend = new Personne("Oceanne", 24, "female");
+
+console.log(myFriend);
+document.getElementById("property").innerHTML = "My friend's hobby is " + myFriend.hobby + ".";
+
+
+// 2. 方法
+    // split()
+    var str1 = "BONJOUR";
+    document.getElementById("split").innerHTML = "L'inverse du BONJOUR est " + str1.split("").reverse().join("") + ".";
+    console.log(("BONJOUR").toLowerCase()); // bonjour
+    // startWith()
+    console.log(str1.startsWith("")); // true
+
+
+// 3. HTML方法
+    var txt = "UP";
+    document.write(txt.anchor("top"));
+    document.write("<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>");
+    document.write(txt.link("#top"));
+
+
+// JS 小练习 this
+
+// var foo = "123";
+function func() {
+    var foo = "456";
+    this.foo = "789";
+    console.log(foo);
+}
+func();
+
+// JS 小练习 new
+
+</script>
+</html> 
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js学习day1</title>
+    <style>
+        #box{
+            background-color: bisque;
+            width: 300px;
+            height: 150px;
+            margin: 100px auto;
+            border-radius: 20px;
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+        }
+        .text{
+            position:absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100%;
+            height: 60px;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <section id="box">
+        <div class="text">
+        Click me!
+        </div>  
+    </section>
+</body>
+<script>
+    var oButton = document.getElementById("box");
+    oButton.onclick = function(){
+        this.style.backgroundColor = "cadetblue";
+    }
+    // document.write("<p>if you can see me, you are clever!</p>");
+    function shoppingList(){
+        document.write("<div>Lorsque j'avais six ans j'ai vu une fois une magnifique image, dans un livre sur la forêt vierge qui s'appelait Histoire Vécue</div>");
+    }
+    shoppingList();
+    // 练习1
+    var a = (123 + 45 * 8)/(34 + 543) - 9 * (324 - 34);
+    console.log(a);
+    // 练习2
+    var degreeCelsius = prompt("Please enter the Celsius degree here.");
+    var degree = 9 / 5 * degreeCelsius + 32;
+    alert(degreeCelsius + " degree Celsius equals " + degree + " degree.");
+    // 练习3
+    var future = (1000 % 7 + 4) % 7;
+    console.log("A thousand days after today is 星期" + future);
+
+
+
+
+    // 事件
+
+
+</script>
+</html>

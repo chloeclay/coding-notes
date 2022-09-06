@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       h1{
+           font-size: 26px;
+           text-align: center;
+           color: rgba(194, 131, 108, 0.753);
+           margin-bottom: 20px;
+       }
+        #outer{
+            width: 500px;
+            height: 360px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+        }
+        img{
+            width: 500px;
+            height: 360px;
+            float: left;
+        }
+        #btns{
+            position: absolute;
+            top: 88%;
+        }
+        #btns div{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: cornsilk;
+            opacity: 50%;
+            float: left;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #btns div:hover{
+            background-color: rgb(190, 176, 117);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // ul width
+            var ul = document.getElementById("imgs");
+            var imgsArr = document.getElementsByTagName("img");
+            var imgWidth = imgsArr[0].offsetWidth;
+            ul.style.width = imgsArr.length*imgWidth + "px";
+
+            // btns postion
+            var btnsDiv = document.getElementById("btns");
+            var outerDiv = document.getElementById("outer");
+            btnsDiv.style.left = (outerDiv.offsetWidth - btnsDiv.offsetWidth)/2 +"px";
+
+            // default btn background
+            var btnsArr = document.querySelectorAll(".btnsArr");
+            var index = 0;
+            btnsArr[index].style.backgroundColor = "rgb(190, 176, 117)";
+
+            // btns functions
+            for (let i = 0; i < btnsArr.length; i++) {
+                btnsArr[i].num = i;
+                btnsArr[i].onclick = function () {
+                    index = this.num;
+                    clearInterval(timer);
+                    move(ul,"left",-index*imgWidth,50,function () {
+                        autoChange();
+                    });
+                    setA();
+                }
+            }
+
+            // autoChange
+            autoChange();
+
+            // tools
+                // 1. getStyle
+                function getStyle(obj,name) {
+                    if (window.getComputedStyle) {
+                        return getComputedStyle(obj,null)[name];
+                    }else{
+                        return obj.currentStyle[name];
+                    }
+                } 
+                // 2. setA
+                function setA() {
+                    if (index >= imgsArr.length-1) {
+                        index = 0;
+                        ul.style.left = 0;
+                    }
+                    for (let i = 0; i < btnsArr.length; i++) {
+                        btnsArr[i].style.backgroundColor = "";
+                    }
+                    btnsArr[index].style.backgroundColor = "rgb(190, 176, 117)";
+                }  
+                // 3. move
+                function move(obj,attr,target,speed,callback) {
+                    clearInterval(obj.timer);
+                    var current = parseInt(getStyle(obj,attr));
+                    if (target<current) {
+                        speed = -speed;
+                    }
+                    obj.timer = setInterval(function () {
+                        var oldValue = parseInt(getStyle(obj,attr));
+                        var newValue = oldValue+speed;
+                        if (speed>0 && newValue>target || speed<0 && newValue<target) {
+                            newValue = target;
+                        }
+                        obj.style[attr] = newValue + "px";
+                        if (newValue == target) {
+                            clearInterval(obj.timer);
+                            callback && callback();
+                        }
+                    },20)
+                }
+                // 4. autoChange
+                var timer;
+                function autoChange() {
+                    timer = setInterval(function () {
+                        index++;
+                        index %= imgsArr.length;
+                        move(ul,"left",-index*imgWidth,50,function () {
+                            setA();
+                        });
+                    },2000)
+                }
+        };
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <h1>轮播图练习</h1>
+        <ul id="imgs">
+            <li><img src="../2022-07-20-图片切换练习/images/1.jpg" alt="" srcset=""></li>
+            <li><img src="../2022-07-20-图片切换练习/images/2.jpg" alt="" srcset=""></li>
+            <li><img src="../2022-07-20-图片切换练习/images/3.jpg" alt="" srcset=""></li>
+            <li><img src="../2022-07-20-图片切换练习/images/4.jpg" alt="" srcset=""></li>
+            <li><img src="../2022-07-20-图片切换练习/images/5.jpg" alt="" srcset=""></li>
+            <li><img src="../2022-07-20-图片切换练习/images/1.jpg" alt="" srcset=""></li>
+        </ul>
+        <div id="btns">
+            <div class="btnsArr"></div>
+            <div class="btnsArr"></div>
+            <div class="btnsArr"></div>
+            <div class="btnsArr"></div>
+            <div class="btnsArr"></div>
+        </div>
+    </div>
+</body>
+</html>

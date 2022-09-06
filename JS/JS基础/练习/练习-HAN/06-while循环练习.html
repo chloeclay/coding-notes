@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-while循环练习</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 利用while循环打印正方形
+    var a = 0;
+    while (a < 10) {
+        var b = 0
+        while (b < 10) {
+            document.write("@ ");
+            b++;
+        }
+        document.write("<br/>");
+        a++;
+    }
+    document.write("<br/>");
+    // 利用while循环打印三角形
+    var a = 0;
+    while (a < 10) {
+        var b = 0;
+        while (b < a + 1) {
+            document.write("@ ");
+            b++;
+        }
+        document.write("<br/>");
+        a++;
+    }
+    document.write("<br/>");
+
+    // 利用while循环打印梯形
+    var a = 0;
+    while (a < 10) {
+        var b = 0;
+        while (b < a + 5 ) {
+            document.write("@ ");
+            b++;
+        }
+        document.write("<br/>");
+        a++;
+    }
+    document.write("<br/>");
+
+    // 利用while循环打印平行四边形
+    var a = 0;
+    while (a < 10) {
+        var c = 0;
+        while (c < a) {
+            document.write("&nbsp;&nbsp;");
+            c++;
+        }
+        var b = 0;
+        while (b < 10 ) {
+            document.write("@ ");
+            b++;
+        }
+        document.write("<br/>");
+        a++;
+    }
+    document.write("<br/>");
+    
+</script>
+</html>

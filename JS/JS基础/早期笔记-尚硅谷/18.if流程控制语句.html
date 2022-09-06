@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    /* 
+      流程控制语句
+        - 从上到下一行行执行
+    */
+
+    // 语句的分类
+    /* 
+       1. 条件判断语句
+       2. 条件分支语句
+       3. 循环语句
+          
+         1.条件判断语句（if语句）
+             在执行语句之前先判断，条件不成立就不执行
+             ***只能控制紧随其后的语句（希望控制多个语句就放到代码框里）一般都放在代码框里
+
+             语法一：
+              if(条件表达式){
+                 语句...
+              }
+              判断条件表达式：true -> 执行if后的语句
+                            false -> 不执行
+            
+             语法二：
+              if(条件表达式){
+                语句...
+              }else{
+                语句...
+              }
+
+              语法三：
+              if(条件表达式){
+                语句...
+              }else if{
+                语句...
+              } 
+              }else if{
+                语句...
+              }else{
+                语句...
+              }
+              */
+
+    var a = 10;
+    if(a > 5 && a <= 20){
+      alert("a比5大，比20小");  // 会显示
+    }
+
+
+
+    // 练习 1:
+
+    /* 
+      从键盘输入小明的期末成绩： 
+          当成绩为100时，“奖励一台iMac”
+          当成绩为[80-99]时，“奖励一台iPhone 12 pro”
+          当成绩为[60-80]时，“奖励一本参考书”
+          其他成绩无奖励
+    */
+    // prompt()函数带有文本框，可以输入内容
+    // 输入的内容会作为函数返回值返回，可以定义一个变量来接收该内容
+    // 返回值为string
+   var note = prompt("请在这里输入你的成绩(0-100):");
+
+   // 判断值是否有效合法
+   // 从大小上判断 从类型上判断 
+   if(note > 100 || note < 0 || isNaN(note)){
+     alert("您输入的成绩无效");
+   }else{
+       if(note == 100){
+        alert("奖励一台iMac")
+      }else if(note >= 80){
+        alert("奖励一台iPhone 12 pro");
+      }else if(note >= 60){
+        alert("奖励一本参考书");
+      }else{
+        alert("考成这个样子还好意思要奖励吗？");
+   }
+   }
+
+
+
+    // 练习 2：
+
+    /* 
+      女方家长嫁女儿，提出条件：
+      高：180cm以上；富：1000万以上；帅：500以上
+      同时满足三个条件：“我一定要嫁给你”
+      有为真的条件：“勉强嫁给你吧”
+      都不满足：“才不要嫁给你”
+    */
+
+    var height = prompt("输入你的身高");
+    var rich = prompt("输入你的财富");
+    var handsome = prompt("输入你的颜值");
+
+    if(height > 180 && rich > 1000 && handsome > 500){
+      alert("我一定要嫁给你");
+    }else if(height > 180 || rich > 1000 || handsome > 500){
+      alert("勉强嫁给你吧");
+    }else{
+      alert("才不要嫁给你");
+    }
+
+
+    
+    // 练习 3:
+
+    /* 
+      编写程序，由键盘输入三个整数分别存入变量num1、num2、num3，
+      对他们进行排序，并且从小到大输出
+    */
+   var num1 = +prompt("输入变量1");
+   var num2 = +prompt("输入变量2");
+   var num3 = +prompt("输入变量3");
+    
+   // 找到最小值
+   if(num1 < num2 && num1 < num3){   
+        if(num2 < num3){
+          alert(num1 +","+ num2 +","+ num3);
+        }else{
+          alert(num1 +","+ num3 +","+ num2);
+        }
+   }else if(num2 < num1 && num2 < num3){
+        if(num1 < num3){
+          alert(num2 +","+ num1 +","+ num3);
+        }else{
+          alert(num2 +","+ num3 +","+ num1);
+        }
+   }else{
+        if(num1 < num2){
+          alert(num3 +","+ num1 +","+ num2);
+        }else{
+          alert(num3 +","+ num2 +","+ num1);
+        }
+   }
+
+  
+
+    </script>
+</head>
+<body>
+</body>
+</html>

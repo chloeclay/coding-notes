@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滚动</title>
+    <style>
+        #box{
+            height: 100px;
+            min-height: 100px;
+            width: 100px;
+            background-color: rgba(201, 180, 201, 0.747);
+            margin: 50px auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            box.onmousewheel = function (event) {
+                if (event.wheelDelta > 0 || event.detail < 0) {
+                    box.style.height = box.clientHeight - 10 + "px";
+                }else{
+                    box.style.height = box.clientHeight + 10 + "px";
+                }
+                // 取消默认滚动行为
+                event.previousDefault && event.previousDefault();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body style="height: 2000px;">
+    <div id="box"></div>
+</body>
+</html>

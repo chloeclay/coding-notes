@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+/**
+ *  通过关系运算符可以比较两个值之间的大小关系
+ *      如果关系成立会返回true，反之为false
+ */
+
+    // 1. >  大于号：判断符号左侧的值是否大于右侧
+
+           var result = 5 > 10; // false
+           result = 5 > 4; // true
+
+           console.log("result = "+result); 
+    // 2. >= 大于等于号：判断符号左侧的值是否大于等于右侧
+    // 3. < 小于号
+    // 4. <= 小于等于号
+
+/**
+ * 非数值情况： 先转换为number再比较
+ * !!! 如果符号两侧都为string，不会将其转换成number进行比较。而会分别比较字符串中字符的Unicode编码 !!!
+ */
+
+     console.log(1 > true); // false
+     console.log(10 > null); // true
+     console.log(10 > undefined); // false 
+     //undefined和非数字string转换成number都为NaN
+     //任何值和NaN做任何比较都为false
+
+     //比较两个string时，比的是Unicode编码：
+     console.log("1100247729010" < "5"); // true
+
+     //比较Unicode编码是一位一位进行比较
+     //如果两侧第一位相同，则比较下一位 -> 可以用于英文排序
+     console.log("a" < "b"); // true
+     console.log("abc" < "b"); // true
+
+     //如果比较两个string类型的数值，可能会得到非预期的结果 -> 一定要进行类型转换
+
+
+
+        
+
+             
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

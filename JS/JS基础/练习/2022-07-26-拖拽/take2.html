@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background: #333;
+            position: absolute;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            background:silver;
+        }
+    </style>
+    <script>
+        /* 拖拽流程：
+                1. 当鼠标在被拖拽元素上按下时，开始拖拽 -> onmousedown
+                2. 当鼠标移动时被拖拽元素跟随鼠标移动 -> onmousemove
+                3. 当鼠标松开时，被拖拽元素固定在当前位置 -> onmouseup
+        */
+        window.onload = function () {
+            var box = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            drag(box);
+            drag(box2);
+            function drag(box1){
+                box1.onmousedown = function (event) {
+                // 计算鼠标偏移量
+                var oT = event.clientY - box1.offsetTop;
+                var oL = event.clientX - box1.offsetLeft;
+                document.onmousemove = function (event) {
+                    box1.style.top = event.clientY - oT + "px";
+                    box1.style.left = event.clientX - oL + "px";
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                }
+                return false;
+            }
+            }
+            
+        };
+
+    </script>
+</head>
+<body>
+    <div id="box2">
+    </div>
+    <div id="box1"></div>
+</body>
+</html>

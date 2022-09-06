@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>15-数组的排序方法</title>
+</head>
+<body>
+</body>
+<script>
+var arr = [1, 22, 111, "a", "A"];
+// sort()
+console.log(arr.sort());
+
+
+// sort()回调函数
+var price = [127, 44, 225, 934, 33028, 192774, 236, 33.2, 33.26, 2224342635];
+// function up(a, b){
+//     if(a > b){
+//         return 1;
+//     }else if(a < b){
+//         return -1;
+//     }else{
+//         return 0;
+//     }
+// }
+function up(a, b){
+    return b - a;
+}
+console.log(price.sort(up));
+
+
+
+
+// 冒泡排序
+var arr = [24, 2332, 4, 5245, 66422, 35253, 42743, 332743, 7437, 227, 495, 9038, 325];
+for(i = 0; i < arr.length - 1; i++){
+    // console.log(i);
+    for (var j = 0; j < arr.length - i - 1; j++) {
+        if (arr[j] > arr[j+1]) {
+            var k = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = k;
+        }
+    }
+}
+console.log(arr);
+
+
+// 选择排序
+var arrMax = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+for (let i = 0; i < arrMax.length - 1; i++) {
+    var max = i;
+    for (let j = i + 1; j < arrMax.length; j++){
+        if (arrMax[max] < arrMax[j]) {
+            max = j;
+        }
+    }
+    var temp = arrMax[i];
+    arrMax[i] = arrMax[max];
+    arrMax[max] = temp;
+    console.log(arrMax);
+    }
+
+
+</script>
+</html> 

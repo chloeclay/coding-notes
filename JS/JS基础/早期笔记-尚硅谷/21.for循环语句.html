@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+/* 
+  for 循环
+ */
+   //  创建循环语句的流程：
+      //  初始化表达式
+      //  条件表达式
+      //  更新表达式 
+  
+      // for循环为⬆️这三个表达式提供了专门的位置
+
+
+
+
+    /* 
+          语法：
+              for(1.初始化表达式 ; 2.条件表达式 ; 4.更新表达式){
+                3.语句...
+              }
+
+          执行：
+              （1）初始化表达式（只执行一次）
+              （2）执行条件表达式，判断是否执行循环
+              （3）true -> 执行语句
+                  false -> 终止语句
+              （4）更新表达式
+              （2）执行条件表达式，判断是否执行循环
+              （3）true -> 执行语句
+                  false -> 终止语句
+              （4）更新表达式
+                 ...
+          
+          注意：
+               - for循环中的三个部分都可以被省略，也可以写在外部
+               - for(;;)  -> 死循环 慎用
+    */
+   for(var a = 1; a < 2; a++){
+     alert(a);
+   }
+  
+
+  //  练习1：打印1-100之间所有奇数之和
+
+  // 先把所有奇数找出来，再***在外部/初始化表达式中***创建一个新的变量来保存所有奇数之和
+  for(var b = 1, sum = 0; b <= 100; b++){
+    if(b%2 != 0){
+      sum = sum + b;
+    }
+  }
+  console.log("1-100之间的奇数之和为："+sum);
+
+
+
+
+  //  练习2：打印1-100之间所有7的倍数的个数及总和
+
+  for(var c = 1, num7 = 0, sum7 = 0; c <= 100; c++){
+    if(c%7 == 0){
+         num7 = num7 + 1;
+         sum7 = sum7 + c;
+    }
+  }
+  console.log("1-100之间7的倍数共有" +num7+ "个，它们的总和为" +sum7);
+
+
+
+
+  // 练习3：水仙花数是指一个3位数，每个位上的数字的3次幂之和等于它本身
+  //       例如：1^3 + 5^3 + 3^3 = 153
+  //       请打印所有水仙花数
+
+/* 试手失败
+
+   for(var d = 1, e = 0, f = 0; d <= 9 && e <=9 && f <=9; d++, e++, f++){
+        if(d*d*d + e*e*e + f*f*f == d*100 + e*10 + f){
+          console.log(d*100 + e*10 + f);
+        }
+  } */
+
+
+
+  for(i = 100; i < 1000; i++){
+        // 获取百位数字
+     var hundredNum = parseInt(i/100);
+/*      console.log(hundredNum);
+ */     //  获取十位数字
+     var tenNum = parseInt((i - 100*hundredNum)/10);
+/*      console.log(tenNum);
+ */     //  获取个位数字
+     var singleNum = i%10;
+/*      console.log(singleNum);
+ */
+     if(hundredNum*hundredNum*hundredNum + tenNum*tenNum*tenNum + singleNum*singleNum*singleNum == i){
+       console.log(i);
+     }
+  }
+    
+
+    </script>
+</head>
+<body>
+</body>
+</html>

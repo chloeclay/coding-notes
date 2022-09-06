@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>11-闭包含数的应用</title>
+</head>
+<body>
+    
+</body>
+<script>
+// 让一个变量的值始终保存在内存中
+    function func(){
+        var a = 10;
+        fAdd = function(){
+            a += 1;
+        }
+        return function func2(){
+            return a;
+        }
+    }
+
+    var res = func(); 
+    console.log(res());
+    fAdd();
+    console.log(res());
+
+
+// 计数器的两种方式：
+    // 1
+    function funcx(){
+        var b = 0;
+        return function(){
+            return b += 1;
+        }
+    }
+    var add = funcx();
+    console.log(add()); // 1
+
+    // 2
+    var add = (function (){
+        var b = 0;
+        return function(){
+            return b += 1;
+        }
+    })();
+    console.log(add()); // 1
+    console.log(add()); // 2
+    console.log(add()); // 3
+    console.log(add()); // 4
+
+    
+
+</script>
+</html> 

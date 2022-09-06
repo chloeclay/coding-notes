@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        img{
+            width: 500px;
+            height: 350px;
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+            /* width: 3000px;  -> JS */
+        }
+        ul li{
+            float: left;
+            margin: 0;
+        }
+        #container{
+            position: relative;
+            width: 500px;
+            height: 350px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        #btns{
+            position: absolute;
+            bottom: 15px;
+        }
+        a{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: cornsilk;
+            float: left;
+            margin: 0 5px;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+        a:hover{
+            background-color: rgb(99, 82, 17);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // 给图片ul设定width
+            var ul = document.getElementsByTagName("ul")[0];
+            var imgArr = document.getElementsByTagName("img");
+                // 用getStyle函数
+                var imgWidth = parseInt(getComputedStyle(imgArr[0],null).width);
+                ul.style.width = imgArr.length * imgWidth + "px";
+
+            // 给按钮设定位置
+            var btnsDiv = document.getElementById("btns");
+            var container = document.getElementById("container");
+            btns.style.left = (container.offsetWidth - btnsDiv.offsetWidth)/2 + "px";
+
+            // 设置默认选中按钮颜色
+            var btnsArr = document.getElementsByTagName("a");
+            var index = 0;
+            btnsArr[index].style.backgroundColor = "rgb(99, 82, 17)";
+            // 点击按钮切换图片
+            for (let i = 0; i < btnsArr.length; i++) {
+                // 给每个btn添加num属性：
+                btnsArr[i].num = i;
+                btnsArr[i].onclick = function () {
+                    // 关闭自动切换定时器
+                    clearInterval(timer);
+                    // 通过num属性获取index值
+                    index = this.num;
+                    // 利用move函数设置图片切换效果
+                    move(ul, "left", -500*index, 30, function () {
+                        //重新开启自动切换定时器
+                        autoChange();
+                    });
+                    // 设置被选中按钮的颜色
+                    setA();
+                }
+            }
+            // 利用autoChange函数自动切换图片
+            autoChange();
+
+            //-------------------------------------------
+            // 设置setA函数
+            function setA() {
+                // 判断当前索引是否是最后一张图片
+                if(index >= imgArr.length - 1){
+                    index = 0;
+                    // 将图片切换成第一张
+                    ul.style.left = 0;
+                }
+
+                // 先都设置成默认色 -> 避免覆盖hover属性
+                for (let i = 0; i < btnsArr.length; i++) {
+                    btnsArr[i].style.backgroundColor = "";
+                }
+                // 当前选中btn设置成黑色
+                btnsArr[index].style.backgroundColor = "rgb(99, 82, 17)";
+            };
+
+            // move函数
+            function move(obj,attr,target,speed,callback) {
+                // 关闭定时器
+                clearInterval(obj.timer);
+                // 判断speed方向
+                var current = parseInt(getStyle(obj,attr));
+                if (target<current) {
+                    speed = -speed;
+                }
+                // 设置定时器
+                obj.timer = setInterval(function () {
+                    var oldValue = parseInt(getStyle(obj,attr));
+                    var newValue = oldValue + speed;
+                    if (newValue > target && speed>0 || newValue < target && speed < 0) {
+                        newValue = target;
+                    }
+                    // 变更属性
+                    obj.style[attr] = newValue + "px";
+
+                    //关闭定时器 执行回调函数
+                    if (newValue == target) {
+                        clearInterval(obj.timer);
+                        callback && callback();
+                    }
+                    
+                },20)
+            }
+            // getStyle函数
+            function getStyle(obj,name) {
+                if (window.getComputedStyle) {
+                    return getComputedStyle(obj,null)[name];
+                }else{
+                    return obj.currentStyle[name];
+                }
+            }
+
+
+            // 设置autoChange函数
+            var timer;
+            function autoChange() {
+                timer = setInterval(function () {
+                index++;
+                index %= imgArr.length;
+                move(ul,"left", -500*index,30,function(){
+                    //设置导航按钮自动切换
+                    setA();
+                });        
+                },2500);
+            }
+            };
+
+                
+
+    </script>
+</head>
+<body>
+    <div id="container">
+        <ul>
+            <li><img src="../2022-07-20-图片切换练习/images/2.jpg" /></li>
+            <li><img src="../2022-07-20-图片切换练习/images/1.jpg" /></li>
+            <li><img src="../2022-07-20-图片切换练习/images/3.jpg" /></li>
+            <li><img src="../2022-07-20-图片切换练习/images/4.jpg" /></li>
+            <li><img src="../2022-07-20-图片切换练习/images/5.jpg" /></li>
+            <li><img src="../2022-07-20-图片切换练习/images/2.jpg" /></li>
+        </ul>
+        <div id="btns">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>

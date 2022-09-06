@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+       运算符也叫操作符
+         通过运算符可以对一个或是多个值进行运算，并获取运算结果
+         e.g. typeof就是运算符，可以获得值的类型。它会将该值的类型以字符串的形式返回
+        */
+         var a = 123;
+         typeof a;
+         console.log(typeof a); // number
+
+         var a = 123;
+         var result = typeof a;
+         console.log(result); // number
+      
+
+        // 算数运算符
+        // +
+        // -
+        // *
+        // /
+
+        /*
+            +：可以对两个值进行加法运算，并将结果返回
+        */
+            var a = 123;
+            var result = typeof a;
+            result = a + 1;
+            console.log(result); // 124
+              
+
+             /*
+                1) 当对非number类型的值进行运算时（加法除外），会转换为number然后运算
+                2) 任何值和NaN进行运算结果都为NaN
+                3) 对两个字符串进行加法运算，则会做拼串
+                4) 任何值和字符串做加法运算，都会先变成字符串，再拼串
+             */
+
+             //e.g.
+             //对非number类型的值进行运算时（加法除外），会转换为number然后运算
+             result = true + false; // 1
+             result = null + 2; // 2
+
+             //对两个字符串进行加法运算，则会做拼串
+             result = undefined + 3; // NaN
+             result = NaN + 3; // NaN
+
+             //对两个字符串进行加法运算，则会做拼串
+             var str = "abc" +
+                       "abc" +
+                       "abc";
+             console.log(str); // "abcabcabc"
+
+             //对非number类型的值进行运算时（加法除外），会转换为number然后运算
+             resultTest = 123 + "1";
+             console.log(resultTest); // "1231"
+             result = true + "hello";
+             console.log(result); // "truehello"
+
+             /*!!! 可以利用这一点将任意数据类型转换为string，只需要为任意数据类型+一个空串“” !!!*/
+             //e.g.
+             var c = 123;
+             c = c + "";
+             console.log(typeof c);  // string
+             console.log("c = "+ c); // "123"
+
+             //运算顺序 
+             result = 1 + 2 + "3";
+             console.log("result = " + result); // "result = 33"
+             result = "1" + 2 + 3;
+             console.log("result = " + result); // "result = 123"
+        /*
+            -：可以对两个值进行减法运算，并将结果返回
+            *：乘法
+            /：除法
+        */
+            result = 100 - "1";
+            console.log("result = " + result); // "result = 99"
+            
+            result = 100 * "2";
+            console.log("result = " + result); // "result = 200"
+
+            result = 20 / false;
+            console.log("result除法 = " + result); // "result = Infinity"
+
+            result = 120 * null;
+            console.log("result null = " + result); // "result = 0"
+
+            result = 2 * undefined;
+            console.log("result undefined =" + result); // "result = NaN"
+ 
+
+             // 可以利用 -0  *1  /1 将任何值转换为number类型，原理=number() 函数
+
+        /*
+        % 取模运算（取余数）
+        */
+            result = 9 % 4;
+            console.log("result % = " + result); // "result = 1"
+
+            
+
+
+
+
+
+
+
+
+
+
+
+             
+
+        
+
+             
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

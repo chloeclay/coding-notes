@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+   /* 
+   条件运算符（三元运算符）
+     - 语法：
+        条件表达式?语句1:语句2;
+     - 执行流程
+        先对条件表达式进行求值（非布尔值会转换成布尔值再执行）
+             值为true -> 执行语句1并返回结果
+             值为false -> 执行语句2并返回结果
+
+   */
+    
+   true ? alert("语句1") : alert("语句2"); // 执行“语句1”
+
+   var a = 10;
+   var b = 20;
+   var c = 50;
+   a > b ? alert("a大") : alert("b大"); // 执行“b大”
+
+   // 获取a和b中的最大值
+   var max = a > b ? a : b; // "max = 20" 
+
+   // 获取a、b、c中的最大值
+   var max = max > c ? max : c; // "max = 50"
+   console.log("max = "+max); 
+   
+   // 不推荐
+   var max = a > b ? (a > c ? a : c) : (b > c ? b : c);
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>

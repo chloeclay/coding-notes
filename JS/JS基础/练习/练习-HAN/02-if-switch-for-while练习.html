@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercices</title>
+</head>
+<body>
+</body>
+<script>
+    // 练习1 - if 成绩是否及格
+    while(true){
+        var oNote = +prompt("Please enter your note");
+        if(oNote >= 0 && oNote <= 100){
+            break;
+        }
+        alert("Illegal");
+    }
+
+    if(oNote == 100){
+        alert("That's great!");
+    }else if(80 <= oNote && oNote <= 99){
+        alert("That's not bad!");
+    }else if(60 <= oNote && oNote <80){
+        alert("That's acceptable.");
+    }else{
+        alert("You've got nothing as compliments.");
+    }
+    
+    
+    // 练习2 - switch 成绩是否及格
+    var yourNote = +prompt("Please enter your note");
+    switch (yourNote >= 60) {
+        case true:
+            alert("Congratulations!");
+            break;
+    
+        default:
+            alert("Pay more attention on classes.");
+            break;
+    }
+
+    // 练习3 - while 投资年利率
+    var oMoney = 1000;
+    var oYear = 0;
+    while(oMoney <= 5000){
+        oMoney *= 1.05;
+        oYear++;
+    }
+    console.log(oYear);
+
+
+    // 练习4 - for 1-100奇数和
+    var sumOdd = 0;
+    for(oddNum = 0; oddNum <= 100; oddNum++){
+        if(oddNum % 2 != 0){
+            sumOdd = sumOdd + oddNum;
+        }
+    }
+    alert("1-100奇数和为" + sumOdd);
+
+
+    // 练习5 - for 1-100内7的倍数个数及和
+    var sumSeven = 0;
+    var countSeven = 0;
+    for(sevenNum = 1; sevenNum <= 100; sevenNum++){
+        if(sevenNum % 7 == 0){
+            sumSeven += sevenNum;
+            countSeven++;
+        }
+    }
+    alert("1-100内7的倍数个数为" + countSeven + "个; 总和为" + sumSeven);
+
+    // 练习6 - for 水仙花数 
+    for(narcisseNum = 100; narcisseNum < 1000; narcisseNum++){
+        var z = parseInt(narcisseNum / 100);
+        var y = parseInt(narcisseNum % 100 / 10);
+        var x = narcisseNum % 10;
+        if(narcisseNum == x * x * x + y * y * y + z * z * z){
+            console.log(narcisseNum + "是水仙花数");
+        }
+    }
+
+    // 练习7 - for 判断是否为质数
+
+        // 判断输入数字是否为大于1的自然数
+            while (true) {
+                var numImput = prompt("请输入一个数字来判断其是否为质数");
+                var numNatural = parseInt(numImput);
+                if (numImput > 1 && numNatural == numImput) {
+                    break;
+                }
+                alert("请输入大于1的自然数进行判断");
+            }
+        // 设置变量保存当前数的状态
+            var oFlag = true;
+        // 判断输入数字是否为质数
+            for ( counter = 2; counter < numImput; counter++) {
+                if (numImput % counter == 0) {
+                    oFlag = false;
+                }
+            }
+            if (oFlag) {
+                alert(numImput + "是一个质数");
+            }else{
+                alert(numImput + "不是一个质数");
+            }
+            
+
+
+</script>
+</html>

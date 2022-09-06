@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            background-color: rgba(250, 177, 118, 0.719);
+            position: absolute;
+            left: calc(50% - 50px);
+            top: calc(50% - 50px);
+        }
+    </style>
+    <script>
+        // 使div根据上下左右按键进行移动
+        window.onload = function () {
+            var box = document.getElementById("box");
+            var dir = 0;
+            var speed = 10;
+            // 定时器 控制方向func
+            setInterval(function () {
+                // clearInterval(timer);
+                if (dir == 37) {
+                    box.style.left = box.offsetLeft -speed + "px";
+                }else if (dir == 38) {
+                    box.style.top = box.offsetTop - speed + "px";
+                }else if (dir == 39) {
+                    box.style.left = box.offsetLeft + speed + "px";
+                }else if (dir == 40) {
+                    box.style.top = box.offsetTop + speed + "px";
+                }
+            },30);
+            document.onkeydown = function (e) {
+                //方向赋值
+                dir = e.keyCode;
+                // 加速器
+                if (e.ctrlKey) {
+                    speed *= 2;
+                }else{
+                    speed = 10;
+                }
+            }
+            document.onkeyup = function () {
+                dir = 0;
+            }
+    };
+    </script>
+</head>
+<body>
+    <div id="box">
+    </div>
+</body>
+</html>

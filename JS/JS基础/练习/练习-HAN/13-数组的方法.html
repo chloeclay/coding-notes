@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>13-数组的方法</title>
+</head>
+<body>
+</body>
+<script>
+// reverse() 反转顺序
+    var arr1 = [1, 2, 3, 4, 5, 3, 2, 2, 7];
+    console.log(arr1.reverse());
+// splice() 添加or删除
+    console.log(arr1.splice(1, 0, "x", "y", "z"));
+    console.log(arr1);
+// sort() 排序
+    var arr4 = [1, 111, 10, "a", "n"];
+    console.log(arr4.sort(function(a,b){
+        return b - a;
+    })); // 1, 10, 111, "a", "n"
+    console.log(arr4);
+// every() 检查是否都符合条件 
+    var arr5 = [1, 2, 3, 4, 11];
+    arr5.every(function(i){
+        console.log(i > 10);
+    }); 
+// some() 检查是否有符合条件
+    var arr6 = [1, 2, 3, 4, 11];
+    arr6.some(function(i){
+        console.log(i > 10);
+    }); 
+// filter() 过滤符合条件的数组
+    console.log(arr6.filter(function(i){
+        return i >= 12;
+    }))
+// forEach() 遍历
+    var arr7 = [2, 2.5, 111, "x", undefined];
+    arr7.forEach(function(val, index, arr){
+        console.log(val, index, arr);
+    })
+// map() 遍历进行函数
+    var arr8 = [2, 2.5, 111, "x", undefined];
+    console.log(arr8.map(function(i){
+        return i += 1;
+    }))
+// reduce() reduceRight() 
+    console.log(arr8.reduce(function(sum, val){
+        sum += val;
+        return sum;
+    })); // 115.5xundefined
+    console.log(arr8.reduceRight(function(sum, val){
+        sum += val;
+        return sum;
+    })); // undefinedx1112.52
+
+// fill()
+    var arr9 = ["a", "b", "c", "d"];
+    console.log(arr9.fill("Chloe", 0, 2)); //"Chloe", "Chloe", "c", "d"
+
+</script>
+</html> 

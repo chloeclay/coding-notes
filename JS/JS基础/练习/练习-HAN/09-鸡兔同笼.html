@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-鸡兔同笼</title>
+</head>
+<body>
+</body>
+<script>
+/* 鸡兔同笼：共10000只脚，问兔子和鸡各有几只？ */
+    // 兔子的所有情况：
+    for (var i = 0; i <= 10000/4; i++) {
+        // 鸡的所有情况：
+            for (var j = 0; j <= 10000/2; j++) {
+                if (4 * i + 2 * j == 10000) {
+                    document.write("兔子有" + i + "只时，鸡有" + j + "只。<br>");
+                }
+        }
+    }
+    
+
+</script>
+</html>
