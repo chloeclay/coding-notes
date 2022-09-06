@@ -220,7 +220,7 @@
 ### 9. 插件机制
   * 扩展jQuery函数对象的方法
     - \$.extend({
-      xxx: fuction () {} // this是$
+      xxx: function () {} // this是$
     })
     - \$.xxx()
   * 扩展jQuery对象的方法
@@ -232,6 +232,9 @@
     - 表单插件：jQuery Validation
     - UI插件：jQuery UI
     - 日期插件：layDate
+
+
+![jQuery结构图](./jQuery结构图.png)
 
 
 ---
