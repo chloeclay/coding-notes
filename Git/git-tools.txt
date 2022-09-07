@@ -1,2 +1,11 @@
-É¾³ýÎÄ¼þ£º
+Delete large file :
 git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch FILENAME'
+
+git status 
+git add * 
+git commmit -m 'message'
+git push
+
+
+git pull 
+git petch

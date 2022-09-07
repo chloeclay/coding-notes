@@ -160,14 +160,14 @@
 
   // 8. 点击切换产品选项 (商品详情等显示出来)
   function tabsChange () {
-    var $lis = $('#product_detail>ul>li')
-    var $divs = $('#product_detail>div:gt(0)')
-    $lis.click(function () {
-      var index = $(this).index()
-      $lis.removeClass('current')
-      this.className = 'current'
-      $divs.hide()
-      $divs.eq(index).show()
+      var $lis = $('#product_detail>ul>li')
+      var $divs = $('#product_detail>div:gt(0)')
+      $lis.click(function () {
+        var index = $(this).index()
+        $lis.removeClass('current')
+        this.className = 'current'
+        $divs.hide()
+        $divs.eq(index).show()
     })
   }
 
