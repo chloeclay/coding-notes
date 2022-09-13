@@ -124,6 +124,7 @@
 ---
 - 进度条
         - 2022-09-07 bilibili HTML&CSS复习-李立超 P13 语义化标签
+        - 2022-09-07 bilibili HTML&CSS复习-李立超 P24 CSS
 
 ---
 ## 常用格式
