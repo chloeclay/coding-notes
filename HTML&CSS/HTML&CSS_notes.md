@@ -133,11 +133,41 @@
     - 父 子：选中后代元素
     - 兄 + 弟：选中后一个弟元素
     - 兄 ~ 弟：选中所有弟元素
+- 伪类选择器：
+    - :link：没有访问过的超链接
+    - :visited：访问过的超链接
+    - :hover：鼠标移入的元素
+    - :active：鼠标点击的元素
+    - :root：网页中的根元素\<html>
+    - :empty：页面中的空元素
+    - :first-child：第一个子元素
+    - :first-of-type：同类型中的第一个子元素
+    - :last-child：最后一个子元素
+    - :last-of-type：同类型中的最后一个元素
+    - :nth-child：第n个子元素
+    - :nth-last-child：倒数第n个元素
+    - :nth-of-type：同类型里的第n个元素
+    - :nth-last-of-type：同类型里的倒数第n个元素
+        - n 表示0到无穷大
+        - 2n 表示偶数
+        - 2n+1 表示奇数
+        - odd 表示奇数
+        - even 表示偶数
+    - :only-child ：唯一的子元素
+    :only-of-type：同类型中唯一的子元素
+- 伪元素选择器：
+    - ::before：标签的开始位
+    - ::after：标签的结束位
+    - ::first-line：第一行
+    - ::first-letter：第一个字母
+    - ::selection：选中部分
+
 
 ---
 - 进度条
         - 2022-09-07 bilibili HTML&CSS复习-李立超 P13 语义化标签
         - 2022-09-13 bilibili HTML&CSS复习-李立超 P24 CSS
+        - 2022-09-15 bilibili HTML&CSS复习-李立超 P34 CSS餐厅练习
 
 ---
 ## 常用格式
