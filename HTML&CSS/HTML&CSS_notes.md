@@ -221,6 +221,7 @@
         - 2022-09-13 bilibili HTML&CSS复习-李立超 P24 CSS
         - 2022-09-15 bilibili HTML&CSS复习-李立超 P32 CSS餐厅练习flukeout.github.io
         - 2022-09-17 bilibili HTML&CSS复习-李立超 P33 样式的继承
+        - 2022-09-19 bilibili HTML&CSS复习-李立超 P37 布局 盒子模型
 
 ---
 ## 常用格式
