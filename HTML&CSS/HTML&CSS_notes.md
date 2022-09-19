@@ -161,13 +161,58 @@
     - ::first-line：第一行
     - ::first-letter：第一个字母
     - ::selection：选中部分
+- 选择器优先级：
+    - !important
+    - 内联样式
+    - id选择器
+    - 类 & 伪类
+    - 元素选择器
+    - 通配选择器
+    - 继承的样式
+```html
+<div id='box1' class='box2'>
+    <span>span</span>
+</div>
+
+#box1{
+    color: red;
+}
+*{
+    color: blue;
+}
+<!-- 此时span显示为blue -->
+```
+> 超链接伪类的优先级问题
+> ``` html
+> a:link{}
+> a:visited{}
+> a:hover{}
+> a:active{}
+> <!-- 按如上顺序编写 -->
+>```
+##### 2. 单位
+###### 1. 长度单位
+- em：相对当前元素font-size值（常用语文字缩进/行间距）
+- rem：相对根元素font-size值（常用于移动端布局）
+###### 2. 颜色单位
+- 进制
+    - 十进制 
+        - 0 1 2 3 4 5 6 7 8 9 10
+    - 二进制 
+        - 0 1 10 11 100 101 110 111
+    - 八进制 
+        - 0 1 2 3 4 5 6 7 10 
+    - 十六进制 
+        - 0 1 2 3 4 5 6 7 8 9 a b c d e f 10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f 20
+
 
 
 ---
 - 进度条
         - 2022-09-07 bilibili HTML&CSS复习-李立超 P13 语义化标签
         - 2022-09-13 bilibili HTML&CSS复习-李立超 P24 CSS
-        - 2022-09-15 bilibili HTML&CSS复习-李立超 P34 CSS餐厅练习
+        - 2022-09-15 bilibili HTML&CSS复习-李立超 P32 CSS餐厅练习flukeout.github.io
+        - 2022-09-17 bilibili HTML&CSS复习-李立超 P33 样式的继承
 
 ---
 ## 常用格式

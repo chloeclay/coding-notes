@@ -65,6 +65,7 @@
           })
           $loading.hide()
           $largeImg.show()
+          
         // 1. move little yellow square
         // get mouse position
         $maskTop.mousemove(function (event) {
