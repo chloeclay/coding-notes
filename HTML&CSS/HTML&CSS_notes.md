@@ -213,6 +213,26 @@
         - 饱和度：0-100%
         - 亮度：0-100%
         - 不透明度：0-1
+##### 3. 布局
+###### 1. 盒子模型（box model）
+- 边框：
+    - border: border-width  border-color border style;
+    - border-style: solid/dotted/dashed/double/groove/ridge/inset/outset
+- 盒子可见大小
+    - 默认=内容+padding+border
+    - box-sizing : 
+        - content-box（默认值，设置内容区可见大小）
+        - border-box（可选值，设置盒子可见大小）
+    - margin：
+        - 子元素实际宽度=父元素内容区宽度=可见框宽度+左右外边距：
+            - w/ml/mr都有值：自动调整mr
+            - w/ml/mr有值为auto：自动调整auto
+            - w/ml/mr都为auto：填满父元素
+            - w有值/ml/mr为auto：居中
+        - width设置为auto，元素宽度会尽可能大；height设置为auto，元素高度会被内容撑开
+        - 垂直外边距：（无边框间隔）相邻折叠
+            - 兄弟：折叠并取最大值
+            - 父子：子传给父
 
 
 ---
@@ -221,7 +241,8 @@
         - 2022-09-13 bilibili HTML&CSS复习-李立超 P24 CSS
         - 2022-09-15 bilibili HTML&CSS复习-李立超 P32 CSS餐厅练习flukeout.github.io
         - 2022-09-17 bilibili HTML&CSS复习-李立超 P33 样式的继承
-        - 2022-09-19 bilibili HTML&CSS复习-李立超 P37 布局 盒子模型
+        - 2022-09-19 bilibili HTML&CSS复习-李立超 P1 布局 盒子模型
+        - 2022-09-20 bilibili HTML&CSS复习-李立超 P10 布局 行内元素
 
 ---
 ## 常用格式
