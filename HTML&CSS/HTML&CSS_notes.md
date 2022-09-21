@@ -263,6 +263,8 @@
             - border-top-left-radius: 100px 50px 左上角椭圆切角
         5. outline：外轮廓
             - 等于一个不占布局位置的border
+        6. line-height：行高
+            - 设置文字行内垂直居中，行高=父元素height
 
 
 ---
@@ -273,6 +275,7 @@
         - 2022-09-17 bilibili HTML&CSS复习-李立超 P33 样式的继承
         - 2022-09-19 bilibili HTML&CSS复习-李立超 P1 布局 盒子模型
         - 2022-09-20 bilibili HTML&CSS复习-李立超 P10 布局 行内元素
+        - 2022-09-21 bilibili HTML&CSS复习-李立超 P16 布局 浮动
 
 ---
 ## 常用格式
