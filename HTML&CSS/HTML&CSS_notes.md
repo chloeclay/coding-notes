@@ -233,6 +233,36 @@
         - 垂直外边距：（无边框间隔）相邻折叠
             - 兄弟：折叠并取最大值
             - 父子：子传给父
+    - 行内元素（\<span>）
+        - 设置width/height无效
+        - 可以设置margin/padding/border，但仅影响水平布局，不影响垂直布局
+    - 替换元素（\<input>）
+        - 不独占一行，其余和块元素一样
+    - 文档流（normal flow）
+        - 指网页中的位置，是网页的最基层
+        - 创建的元素默认位于文档流中
+        - 文档流内块元素自上向下排列，默认宽度为auto，高度为内容撑开；行内元素自左向右排列，默认宽高都由内容撑开
+    - 常用样式：
+        1. overflow：子元素超出父元素大小溢出
+            - visible：默认，不处理
+            - hidden：裁剪溢出内容
+            - scroll：生成垂直和水平滚动条
+            - auto：根据需求生成滚动条
+        2. display：元素类型
+            - inline：行内元素
+            - block：块元素
+            - inline-block：行内块元素，不独占一行但可设置宽高
+            - table：具有table标签特点
+            - flow-root：具有html跟元素特点
+        3. visibility：可见性
+            - visible：默认值，正常显示
+            - hidden：隐藏元素但依然占据位置
+        4. border-radius：圆角
+            - 100px 200px 200px 300px / 200px 320px 210px 20px：椭圆切角横/纵半径
+            - 100px 200px 300px：未设置值的角取对角值
+            - border-top-left-radius: 100px 50px 左上角椭圆切角
+        5. outline：外轮廓
+            - 等于一个不占布局位置的border
 
 
 ---
