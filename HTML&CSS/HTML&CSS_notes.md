@@ -287,6 +287,7 @@
         - 2022-09-20 bilibili HTML&CSS复习-李立超 P10 布局 行内元素
         - 2022-09-21 bilibili HTML&CSS复习-李立超 P16 布局 浮动
         - 2022-09-22 bilibili HTML&CSS复习-李立超 P17 布局 导航条练习
+        - 2022-09-23 bilibili HTML&CSS复习-李立超 P20 布局 高度塌陷
 
 ---
 ## 常用格式
