@@ -276,6 +276,73 @@
         - left：清除左侧所受其他元素浮动影响
         - right：清除右侧所受其他元素浮动影响
         - both：清除两侧中对当前元素影响最大的浮动
+    - BFC（块级格式化环境）解决高度塌陷：
+        - 开启特点：
+            1. 不被浮动元素遮盖
+            2. 垂直外边距不传递给父元素
+            3. 可以包含浮动的子元素
+        - 开启方式：
+            1. 设置float（脱离文档流）
+            2. 设置据对定位（脱离文档流）
+            3. 设置overflow为非visible的值（通常为hidden）
+            4. 设置display: flow-root;（不兼容ie）
+    - 添加clearfix类解决高度塌陷：
+        ```css
+            .clearfix::before,
+            .clearfix::after{
+                content:'';
+                display: table;
+                clear: both;
+            }
+        ```
+###### 3. 定位position
+1. static 默认值，不开启定位
+2. relative 相对定位
+    - 不脱离文档流，不改变元素性质，但会提升元素层级
+    - 参照自身位置进行定位
+    - 利用top/left/bottom/right设置偏移量
+3. absolute 绝对定位
+    - 脱离文档流，改变元素性质（行内元素变块元素），提升元素层级
+    - 参照包含块进行定位
+        > 包含块：包含当前元素的块元素
+        >   - 普通元素：包含块为距离最近的祖先块元素
+        >   - 绝对定位元素：包含块为距离最近的开启定位的祖先元素；若所有祖先元素都未开启定位，则包含块为初始包含块
+    - 等式：
+        > - 水平：
+        >   - **left + margin-left + width + margin-right + right = 父元素宽度**
+        > - 垂直：
+        >   - **top + margin-top + height + margin-bottom + bottom = 父元素高度**
+
+        > 常用：
+        > 1. 绝对定位+水平居中+垂直居中：
+        > width: 固定值
+        > left: 0
+        > right: 0
+        > height: 固定值
+        > top: 0
+        > bottom: 0
+        > margin: auto
+        > 2. 绝对定位+撑满父元素
+        > height: auto
+        > width: auto
+        > left: 0
+        > right: 0
+        > top: 0
+        > bottom: 0
+4. fixed 固定定位
+    - 参照视口（viewport）进行定位，不随网页滚动
+    - 其余特性与绝对定位一致
+5. sticky 粘滞定位
+    - 参照距离最近的，开启了滚动条的祖先元素进行定位
+    - 元素滚动到定位位置时保持在该位置（导航条）
+    - 其余特性与相对定位一致
+6. 层级
+    - 定位元素之间的层级相同，下边的定位元素会盖住上边的
+    - z-index设置**定位元素**层级，数字越大越靠上
+    - 父元素无法遮盖子元素
+    - opacity设置元素透明度
+        
+
 
 ---
 - 进度条
@@ -288,6 +355,7 @@
         - 2022-09-21 bilibili HTML&CSS复习-李立超 P16 布局 浮动
         - 2022-09-22 bilibili HTML&CSS复习-李立超 P17 布局 导航条练习
         - 2022-09-23 bilibili HTML&CSS复习-李立超 P20 布局 高度塌陷
+        - 2022-09-26 bilibili HTML&CSS复习-李立超 P30 字体样式
 
 ---
 ## 常用格式
