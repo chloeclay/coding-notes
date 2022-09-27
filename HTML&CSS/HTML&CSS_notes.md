@@ -341,7 +341,10 @@
     - z-index设置**定位元素**层级，数字越大越靠上
     - 父元素无法遮盖子元素
     - opacity设置元素透明度
-        
+##### 4. 常用属性
+1. 字体
+    - font-family: 'microsoft yahei'; （有空格时需加引号）
+    - font: italic bold 50px/75px 'microsoft yahei', sans-serif; （倒数第二位必须是字号，斜杠后为行高，最后一位必须是字体名）
 
 
 ---
@@ -356,6 +359,7 @@
         - 2022-09-22 bilibili HTML&CSS复习-李立超 P17 布局 导航条练习
         - 2022-09-23 bilibili HTML&CSS复习-李立超 P20 布局 高度塌陷
         - 2022-09-26 bilibili HTML&CSS复习-李立超 P30 字体样式
+        - 2022-09-27 bilibili HTML&CSS复习-李立超 P32 文字的垂直对齐
 
 ---
 ## 常用格式
