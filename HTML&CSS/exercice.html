@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML&CSS exercices</title>
     <style>
-        #box{
+        .box1{
             width: 100px;
             height: 100px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
             background-color: #fdc;
-            margin-left: auto;
+        }
+        .box2{
+            background-color: aquamarine;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
-    <div id="box"></div>
+    <div class="box1">
+        <div class="box2">aaa</div>
+    </div>
 </body>
 </html>

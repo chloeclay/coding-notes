@@ -345,8 +345,45 @@
 1. 字体
     - font-family: 'microsoft yahei'; （有空格时需加引号）
     - font: italic bold 50px/75px 'microsoft yahei', sans-serif; （倒数第二位必须是字号，斜杠后为行高，最后一位必须是字体名）
-
-
+    - @font-face:{
+        font-family: 自定义名称;
+        src: url(./xxx/xx.ttf);
+    }
+    - 图标字体
+        - font awesome
+            - 引入css后直接使用\<i class="fas fa-cat">\</i>
+            - html引入：\&#x十六进制编码;
+            - css：元素::before{
+                content:'\十六进制编码';
+                fas的代码;
+            }
+        - remix icon 原理同上
+        - iconfont.cn 原理同上
+2. 基线 baseline
+    - 每个文本框都有一条基线，所有行内元素、替换元素（图片、表单项）默认沿基线对齐
+    - vertical-align：
+        - baseline 默认值 基线对齐
+        - top 顶部对齐（可用于加角标）
+        - bottom 底部对齐
+        - middle 居中对齐（非真正居中，不常用）
+        - 数值 距离基线多远对齐
+3. 表格
+    - 边框需设置给td，且给table设置合并边框：
+        - border-collapse: collapse;
+    - 给td设置vertical-align对齐方式
+4. 居中
+    1. 定位居中法
+        - 父元素position: relative;
+        - 子元素position: absolute;
+        - 子元素width/height确定;
+        - 子元素top/bottom/left/right=0;
+        > 此时子元素必须确定宽高，否则默认撑满父元素
+    2. 表格居中法
+        - 父元素display: table-cell;
+        - 父元素vertical-align: middle;
+        - 父元素text-align: center;
+        - 子元素display: inline-block;
+        > 此时父元素转换为单元格，默认宽度由内容撑开
 ---
 - 进度条
         - 2022-09-07 bilibili HTML&CSS复习-李立超 P13 语义化标签
@@ -360,6 +397,7 @@
         - 2022-09-23 bilibili HTML&CSS复习-李立超 P20 布局 高度塌陷
         - 2022-09-26 bilibili HTML&CSS复习-李立超 P30 字体样式
         - 2022-09-27 bilibili HTML&CSS复习-李立超 P32 文字的垂直对齐
+        - 2022-09-28 bilibili HTML&CSS复习-李立超 P38 背景
 
 ---
 ## 常用格式
