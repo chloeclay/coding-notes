@@ -384,6 +384,31 @@
         - 父元素text-align: center;
         - 子元素display: inline-block;
         > 此时父元素转换为单元格，默认宽度由内容撑开
+5. 背景
+    1. background-clip
+        - border-box：默认，延伸到边框
+        - padding-box：延伸到内边距
+        - content-box：延伸到内容区
+    2. background-repeat
+        - repeat：默认值，xy方向双向平铺
+        - no-repeat：不重复
+        - repeat-x：x方向平铺
+        - repeat-y：y方向平铺
+    3. background-size
+        - 宽度 高度
+        - cover：自动调整大小撑满元素，图片可能显示不完全
+        - contain：图片完整显示
+    4. background-position
+        - top bottom left right center 任选两个表示x和y
+        - 第一个值为left偏移量；第二个值为top偏移量
+    5. background-origin
+        - padding-box：默认，内边距为原点
+        - content-box：内容区为原点
+        - border-box：边框为原点
+    6. 简写：
+        - position/size
+        - 先origin后clip 
+
 ---
 - 进度条
         - 2022-09-07 bilibili HTML&CSS复习-李立超 P13 语义化标签
@@ -398,6 +423,7 @@
         - 2022-09-26 bilibili HTML&CSS复习-李立超 P30 字体样式
         - 2022-09-27 bilibili HTML&CSS复习-李立超 P32 文字的垂直对齐
         - 2022-09-28 bilibili HTML&CSS复习-李立超 P38 背景
+        - 2022-09-29 bilibili HTML&CSS复习-李立超 P44 项目练习 美的官网
 
 ---
 ## 常用格式
