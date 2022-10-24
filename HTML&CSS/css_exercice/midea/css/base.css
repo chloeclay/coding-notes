@@ -1,0 +1,13 @@
+/* 公共样式 */
+body{
+    background-color: #fff;
+    color: #666;
+    font: 12px/1.5 'Lucida Grande', Arial, '\5FAE\8F6F\96C5\9ED1', '\5b8b\4f53', sans-serif;
+}
+/* clearfix高度塌陷 */
+.clearfix::before,
+.clearfix::after{
+    content: '';
+    display: table;
+    clear: both;
+}
